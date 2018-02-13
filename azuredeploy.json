@@ -1,0 +1,220 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "siteLocation": {
+            "type": "string"
+        },
+        "storageAccountType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_GRS",
+                "Standard_RAGRS"                
+            ],
+            "metadata": {
+                "description": "Storage Account type"
+            }
+        },
+        "databaseConsistencyLevel": {
+          "type": "string",
+          "allowedValues": [
+            "Eventual",
+            "Strong",
+            "Session",
+            "BoundedStaleness"
+          ],
+          "defaultValue": "Session",
+          "metadata": {
+            "description": "The DocumentDB deault consistency level for this account."
+          }
+        },
+        "databaseMaxStalenessPrefix": {
+          "type": "int",
+          "minValue": 10,
+          "maxValue": 1000,
+          "defaultValue": 10,
+          "metadata": {
+            "description": "Database Max Staleness Prefix."
+          }
+        },
+        "databaseMaxIntervalInSeconds": {
+          "type": "int",
+          "minValue": 5,
+          "maxValue": 600,
+          "defaultValue": 5,
+          "metadata": {
+            "description": "Database Max Interval InSeconds."
+          }
+        },
+        "faceApiPricingTier": {
+            "type": "string",
+            "metadata": {
+                "description": "Pricing tier for Face API"
+            },
+            "defaultValue": "S0",
+            "allowedValues": [
+                "F0",
+                "S0"
+            ]
+        }
+    },
+    "variables": {
+        "appServicePlanName": "[toLower(concat(resourceGroup().name,'-asp'))]",
+        "storageAccountName": "[concat(uniqueString(resourceGroup().id),'stg')]",
+        "storageAccountId": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+        "functionAppName": "[toLower(concat(resourceGroup().name,'-fun'))]",
+        "databaseAccountName": "[toLower(concat(resourceGroup().name,'-cos'))]",
+        "offerType": "Standard",
+        "faceApiAccountName": "[toLower(concat(resourceGroup().name,'-fac'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageAccountName')]",
+            "apiVersion": "2016-12-01",
+            "location": "[resourceGroup().location]",
+            "kind": "Storage",
+            "sku": {
+                "name": "[parameters('storageAccountType')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2015-04-01",
+            "name": "[variables('appServicePlanName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "name": "[variables('appServicePlanName')]",
+                "computeMode": "Dynamic",
+                "sku": "Dynamic"
+            }
+        },
+        {
+            "apiVersion": "2015-08-01",
+            "type": "Microsoft.Web/sites",
+            "name": "[variables('functionAppName')]",
+            "location": "[resourceGroup().location]",
+            "kind": "functionapp",            
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+            ],
+            "properties": {
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
+                "siteConfig": {
+                    "appSettings": [
+                        {
+                            "name": "AzureWebJobsDashboard",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountId'),'2015-05-01-preview').key1)]"
+                        },
+                        {
+                            "name": "AzureWebJobsStorage",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountId'),'2015-05-01-preview').key1)]"
+                        },
+                        {
+                            "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountId'),'2015-05-01-preview').key1)]"
+                        },
+                        {
+                            "name": "WEBSITE_CONTENTSHARE",
+                            "value": "[toLower(variables('functionAppName'))]"
+                        },
+                        {
+                            "name": "FUNCTIONS_EXTENSION_VERSION",
+                            "value": "~1"
+                        },
+                        {
+                            "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                            "value": "6.5.0"
+                        },
+                        {
+                            "name": "ImageStorageUrl",
+                            "value": "[concat('https://', variables('storageAccountName'),'.blob.core.windows.net/images/')]"
+                        },
+                        {
+                            "name": "Face_API_Subscription_Key",
+                            "value": "PENDING_TO_CONFIGURE"
+                        },
+                        {
+                            "name": "Face_API_PersonGroupId",
+                            "value": "PENDING_TO_CONFIGURE"
+                        },
+                        {
+                            "name": "Face_API_Zone",
+                            "value": "PENDING_TO_CONFIGURE"
+                        },
+                        {
+                            "name": "Face_API_FaceList",
+                            "value": "PENDING_TO_CONFIGURE"
+                        },
+                        {
+                            "name": "CosmosDB_URI",
+                            "value": "PENDING_TO_CONFIGURE"
+                        },
+                        {
+                            "name": "CosmosDB_AuthKey",
+                            "value": "PENDING_TO_CONFIGURE"
+                        },
+                        {
+                            "name": "CosmosDB_DatabaseId",
+                            "value": "PENDING_TO_CONFIGURE"
+                        },
+                        {
+                            "name": "CosmosDB_PersonCollection",
+                            "value": "PENDING_TO_CONFIGURE"
+                        },
+                        {
+                            "name": "Cryptography_Key",
+                            "value": "PENDING_TO_CONFIGURE"
+                        },
+                        {
+                            "name": "MobileCenterID_Android",
+                            "value": "PENDING_TO_CONFIGURE"
+                        },
+                        {
+                            "name": "MobileCenterID_iOS",
+                            "value": "PENDING_TO_CONFIGURE"
+                        }
+                    ]
+                }
+            }          
+        },
+        {
+            "apiVersion": "2015-04-08",
+            "type": "Microsoft.DocumentDB/databaseAccounts",
+            "name": "[variables('databaseAccountName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+              "name": "[variables('databaseAccountName')]",
+              "databaseAccountOfferType": "[variables('offerType')]",
+              "consistencyPolicy": {
+                "defaultConsistencyLevel": "[parameters('databaseConsistencyLevel')]",
+                "maxStalenessPrefix": "[parameters('databaseMaxStalenessPrefix')]",
+                "maxIntervalInSeconds": "[parameters('databaseMaxIntervalInSeconds')]"
+              },
+              "locations": [
+                {
+                  "locationName": "[resourceGroup().location]",
+                  "failoverPriority": 0
+                }
+              ]
+            }
+        },
+        {
+            "type": "Microsoft.CognitiveServices/accounts",
+            "sku": {
+              "name": "[parameters('faceApiPricingTier')]"
+            },
+            "kind": "Face",
+            "name": "[variables('faceApiAccountName')]",
+            "apiVersion": "2016-02-01-preview",
+            "location": "[resourceGroup().location]",
+            "properties": {},
+            "dependsOn": []
+        }
+    ],
+    "outputs": {
+    }
+}
