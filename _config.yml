@@ -34,7 +34,7 @@ colors:
   turquoise: '#0fbfcf'
   lightblue: '#e1e7ee'
   orangelight: '#fdbf5c'
-  purplelight: '#9e91c6'
+  purplelight: '#baafd3'
   
 kramdown:
   auto_ids:  false
