@@ -33,8 +33,9 @@ colors:
   orange:    '#fab125'
   turquoise: '#0fbfcf'
   lightblue: '#e1e7ee'
-  orangelight: '#f9e08c'
-  purplelight: '#baafd3'
+  lightorange: '#f9e08c'
+  lightpurple: '#baafd3'
+  lightgreen: '#aaddd6'
   
 kramdown:
   auto_ids:  false
