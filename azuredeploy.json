@@ -170,11 +170,11 @@
                             "value": "PENDING_TO_CONFIGURE"
                         },
                         {
-                            "name": "MobileCenterID_Android",
+                            "name": "AppCenterID_Android",
                             "value": "PENDING_TO_CONFIGURE"
                         },
                         {
-                            "name": "MobileCenterID_iOS",
+                            "name": "AppCenterID_iOS",
                             "value": "PENDING_TO_CONFIGURE"
                         }
                     ]
