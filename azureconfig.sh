@@ -178,11 +178,11 @@ ConfigureFunctionApp ()
 
     # configure app center android
     read -p "Paste your App Center Id for Android: " appCenterAndroid
-    az functionapp config appsettings set --resource-group $resourceGroupName --name $functionAppName --settings MobileCenterID_Android=$appCenterAndroid
+    az functionapp config appsettings set --resource-group $resourceGroupName --name $functionAppName --settings AppCenterID_Android=$appCenterAndroid
 
     # configure app center ios
     read -p "Paste your App Center Id for iOS: " appCenteriOS
-    az functionapp config appsettings set --resource-group $resourceGroupName --name $functionAppName --settings MobileCenterID_iOS=$appCenteriOS
+    az functionapp config appsettings set --resource-group $resourceGroupName --name $functionAppName --settings AppCenterID_iOS=$appCenteriOS
     
     echo "Function App configured successfully!"
 }
