@@ -2,7 +2,7 @@
 
 clear
 echo "***************************************************"
-echo "******Azure Cognitive Hack Configuration Tool******"
+echo "******Azure Intelligent Hack Configuration Tool******"
 echo "***************************************************"
 
 ConfigureAzureSubscription ()
@@ -57,7 +57,7 @@ ConfigureDatabase ()
     databaseAccountName=$resourceGroupName"-cos"
     echo "Account name: " $databaseAccountName
     
-    databaseName="AzureCognitiveHack"
+    databaseName="AzureIntelligentHack"
     echo "Database name: " $databaseName
 
     # create database 
@@ -167,7 +167,7 @@ ConfigureFunctionApp ()
     az functionapp config appsettings set --resource-group $resourceGroupName --name $functionAppName --settings CosmosDB_AuthKey=$databaseKey1
 
     # configure database id
-    az functionapp config appsettings set --resource-group $resourceGroupName --name $functionAppName --settings CosmosDB_DatabaseId=AzureCognitiveHack
+    az functionapp config appsettings set --resource-group $resourceGroupName --name $functionAppName --settings CosmosDB_DatabaseId=AzureIntelligentHack
 
     # configure database person collection
     az functionapp config appsettings set --resource-group $resourceGroupName --name $functionAppName --settings CosmosDB_PersonCollection=Person
