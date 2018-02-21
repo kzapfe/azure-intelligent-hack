@@ -1,8 +1,8 @@
 ---
-title: "updating"
-bg: purple
+title: "development"
+bg: lightpurple
 color: white
-fa-icon: cloud-upload
+fa-icon: plug
 ---
 
 ## Updating
