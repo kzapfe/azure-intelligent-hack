@@ -1,7 +1,7 @@
 ---
 title: "development"
-bg: lightpurple
-color: white
+bg: lightgray
+color: black
 fa-icon: plug
 ---
 
