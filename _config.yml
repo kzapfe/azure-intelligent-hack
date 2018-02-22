@@ -36,6 +36,8 @@ colors:
   lightorange: '#f9e08c'
   lightpurple: '#baafd3'
   lightgreen: '#aaddd6'
+  lightgray: '#d6dbe0'
+  lightpink: '#edd6d6'
   
 kramdown:
   auto_ids:  false
