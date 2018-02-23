@@ -1,0 +1,23 @@
+﻿using IntelligentHack.Domain;
+
+namespace IntelligentHack.Requests
+{
+    public class BaseRequest
+    {
+        public string Token { get; set; }
+    }
+
+    public class MetadataVerificationRequest : BaseRequest
+    {
+        public MetadataVerification Metadata { get; set; }
+    }
+
+    public class MobileSettingsRequest : BaseRequest
+    {
+    }
+
+    public class ImageVerificationRequest : BaseRequest
+    {
+        public string ImageName { get; set; }
+    }
+}
