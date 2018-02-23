@@ -26,6 +26,20 @@ In your CognitiveLocator.Droid project go to Resources\values\strings.xml and se
 
 Congrats if you successfully configure the app you can run it now!
 
-<img src="http://rcervantes.me/images/cognitive-locator-app.png" width="300" />
+<img src="http://rcervantes.me/azure-intelligent-hack/images/intelligenthack-1.png" width="300" />
 
-<img src="http://rcervantes.me/images/cognitive-locator-app2.png" width="300" />
+<img src="http://rcervantes.me/azure-intelligent-hack/images/intelligenthack-2.png" width="300" />
+
+<img src="http://rcervantes.me/azure-intelligent-hack/images/intelligenthack-3.png" width="300" />
+
+<img src="http://rcervantes.me/azure-intelligent-hack/images/intelligenthack-4.png" width="300" />
+
+<img src="http://rcervantes.me/azure-intelligent-hack/images/intelligenthack-5.png" width="300" />
+
+<img src="http://rcervantes.me/azure-intelligent-hack/images/intelligenthack-6.png" width="700" />
+
+<img src="http://rcervantes.me/azure-intelligent-hack/images/intelligenthack-7.png" width="700" />
+
+Once you have created a new report, you are now able to see the metadata in CosmosDB and the picture on Azure Table Storage.
+
+In case you have questions or doubts you can send me an email to: robece@microsoft.com.
