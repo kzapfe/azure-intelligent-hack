@@ -17,7 +17,9 @@ In your IntelligentHack\App.xaml.cs file set the following attributes:
 
 ```csharp
     Settings.FunctionURL = "https://{AzureFunctionApp}.azurewebsites.net";
-    Settings.Cryptography = "{AzureFunctionAppCryptographyKey}"; //previously configured in the backend
+```
+```csharp
+    Settings.Cryptography = "{AzureFunctionAppCryptographyKey}";
 ```
 
 In your CognitiveLocator.Droid project go to Resources\values\strings.xml and set the following attributes:
