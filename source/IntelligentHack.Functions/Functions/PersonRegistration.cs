@@ -48,7 +48,7 @@ namespace IntelligentHack.Functions
             int count = query.ToList().Count;
             if (count > 0)
             {
-                await MailManager.RegistrationMail(p.ReportedBy, "Person processed before", "There was an exception. The person has been processed before.");
+                await MailManager.RegistrationMail(p.ReportedBy, "Person processed before", "There was an exception. The person has been processed before.", p);
                 return;
             }
 
@@ -61,7 +61,7 @@ namespace IntelligentHack.Functions
                 log.Info($"no valid content type for: {name}.{extension}");
                 await blobImage.DeleteAsync();
                 await blobJson.DeleteAsync();
-                await MailManager.RegistrationMail(p.ReportedBy, "No valid format", "There was an exception. The person image has not a valid format.");
+                await MailManager.RegistrationMail(p.ReportedBy, "No valid format", "There was an exception. The person image has not a valid format.", p);
                 return;
             }
 
@@ -71,7 +71,7 @@ namespace IntelligentHack.Functions
                 log.Info($"there are no faces in the image: {name}.{extension}");
                 await blobImage.DeleteAsync();
                 await blobJson.DeleteAsync();
-                await MailManager.RegistrationMail(p.ReportedBy, "No face in the image", "There was an exception. The person face was not identified, ensure the image is correct and clear.");
+                await MailManager.RegistrationMail(p.ReportedBy, "No face in the image", "There was an exception. The person face was not identified, ensure the image is correct and clear.", p);
                 return;
             }
 
@@ -81,7 +81,7 @@ namespace IntelligentHack.Functions
                 log.Info($"multiple faces detected in the image: {name}.{extension}");
                 await blobImage.DeleteAsync();
                 await blobJson.DeleteAsync();
-                await MailManager.RegistrationMail(p.ReportedBy, "Multiple faces in the image", "There was an exception. The person face was not identified because there are multiple faces in the image, ensure the image has one single face.");
+                await MailManager.RegistrationMail(p.ReportedBy, "Multiple faces in the image", "There was an exception. The person face was not identified because there are multiple faces in the image, ensure the image has one single face.", p);
                 return;
             }
 
@@ -108,13 +108,13 @@ namespace IntelligentHack.Functions
                 await blobImage.DeleteAsync();
                 await blobJson.DeleteAsync();
                 log.Info($"Error in file: {name}.{extension} - {ex.Message}");
-                await MailManager.RegistrationMail(p.ReportedBy, "Internal error", "There was an exception processing the image. Please contact the support.");
+                await MailManager.RegistrationMail(p.ReportedBy, "Internal error", "There was an exception processing the image. Please contact the support.", p);
                 return;
             }
 
             await blobJson.DeleteAsync();
             log.Info("person registered successfully");
-            await MailManager.RegistrationMail(p.ReportedBy, "Successfully registration", "The person was successfully registered in the database.");
+            await MailManager.RegistrationMail(p.ReportedBy, "Successfully registration", "The person was successfully registered in the database.", p);
         }
     }
 }
