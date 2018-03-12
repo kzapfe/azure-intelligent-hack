@@ -176,6 +176,10 @@
                         {
                             "name": "AppCenterID_iOS",
                             "value": "PENDING_TO_CONFIGURE"
+                        },
+                        {
+                            "name": "SendGrid_API_Key",
+                            "value": "PENDING_TO_CONFIGURE"
                         }
                     ]
                 }
