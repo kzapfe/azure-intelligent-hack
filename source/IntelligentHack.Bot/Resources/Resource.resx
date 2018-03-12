@@ -136,10 +136,10 @@
     <value>You are not identified, the registration will be performed in anonymous mode.</value>
   </data>
   <data name="RegistrationIdentification_Country" xml:space="preserve">
-    <value>Introduce the country where was the lost (US, Mexico).</value>
+    <value>Introduce the country where was the lost (US, MX).</value>
   </data>
   <data name="RegistrationIdentification_DateOfLost" xml:space="preserve">
-    <value>Introduce the date of the lost.</value>
+    <value>Introduce the date of the lost (mm/dd/yyyy).</value>
   </data>
   <data name="RegistrationIdentification_Fail" xml:space="preserve">
     <value>There was an error registering the report.</value>

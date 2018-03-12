@@ -115,7 +115,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Introduce the country where was the lost (US, Mexico)..
+        ///   Looks up a localized string similar to Introduce the country where was the lost (US, MX)..
         /// </summary>
         internal static string RegistrationIdentification_Country {
             get {
@@ -124,7 +124,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Introduce the date of the lost..
+        ///   Looks up a localized string similar to Introduce the date of the lost (mm/dd/yyyy)..
         /// </summary>
         internal static string RegistrationIdentification_DateOfLost {
             get {

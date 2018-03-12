@@ -136,10 +136,10 @@
     <value>No te encuentras identificado, el registro será realizado en modo anónimo.</value>
   </data>
   <data name="RegistrationIdentification_Country" xml:space="preserve">
-    <value>Introduce el país donde se llevó el extravío (US, Mexico).</value>
+    <value>Introduce el país donde se llevó el extravío (US, MX).</value>
   </data>
   <data name="RegistrationIdentification_DateOfLost" xml:space="preserve">
-    <value>Introduce la fecha de extravío.</value>
+    <value>Introduce la fecha de extravío (mm/dd/yyyy).</value>
   </data>
   <data name="RegistrationIdentification_Fail" xml:space="preserve">
     <value>Se presentó un error al realizar el registro del reporte.</value>

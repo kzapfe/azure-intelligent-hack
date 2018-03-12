@@ -15,6 +15,7 @@ namespace IntelligentHack.Bot.Classes
 
         public string LocationOfLost { get; set; }
 
+        [Pattern(@"^(0[1-9]|1[012])[-/.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)\d\d$")]
         public string DateOfLost { get; set; }
 
         public string ReportId { get; set; }
@@ -27,6 +28,6 @@ namespace IntelligentHack.Bot.Classes
     public enum Country
     {
         US,
-        Mexico
+        MX
     }
 }
