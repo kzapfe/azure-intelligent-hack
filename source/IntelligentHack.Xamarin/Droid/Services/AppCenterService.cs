@@ -11,7 +11,7 @@ namespace IntelligentHack.Droid.Services
         public void Initialize()
         {
             //telemetry on Mobile Center
-            AppCenter.Start(Settings.MobileCenterID_Android, typeof(Analytics), typeof(Crashes));
+            AppCenter.Start(Settings.AppCenterID_Android, typeof(Analytics), typeof(Crashes));
         }
     }
 }

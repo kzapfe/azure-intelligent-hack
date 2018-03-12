@@ -48,8 +48,8 @@ namespace IntelligentHack.ViewModels
 
                 //get mobile settings
                 Dictionary<string, string> result = await RestHelper.GetMobileSettings();
-                Settings.MobileCenterID_Android = result[nameof(Settings.MobileCenterID_Android)];
-                Settings.MobileCenterID_iOS = result[nameof(Settings.MobileCenterID_iOS)];
+                Settings.AppCenterID_Android = result[nameof(Settings.AppCenterID_Android)];
+                Settings.AppCenterID_iOS = result[nameof(Settings.AppCenterID_iOS)];
                 Settings.AzureWebJobsStorage = result[nameof(Settings.AzureWebJobsStorage)];
                 Settings.ImageStorageUrl = result[nameof(Settings.ImageStorageUrl)];
 

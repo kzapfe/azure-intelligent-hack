@@ -21,10 +21,8 @@ namespace IntelligentHack
         private const string FunctionURLKey = "FunctionURLKey";
         private const string CryptographyKey = "CryptographyKey";
         private const string AzureWebJobsStorageKey = "AzureWebJobsStorageKey";
-        private const string MobileCenterID_AndroidKey = "MobileCenterID_AndroidKey";
-        private const string MobileCenterID_iOSKey = "MobileCenterID_iOSKey";
-        private const string NotificationAccessSignatureKey = "NotificationAccessSignatureKey";
-        private const string NotificationHubNameKey = "NotificationHubNameKey";
+        private const string AppCenterID_AndroidKey = "AppCenterID_AndroidKey";
+        private const string AppCenterID_iOSKey = "AppCenterID_iOSKey";
         private const string ImageStorageUrlKey = "ImageStorageUrlKey";
 
         #endregion
@@ -77,51 +75,27 @@ namespace IntelligentHack
             }
         }
 
-        public static string MobileCenterID_Android
+        public static string AppCenterID_Android
         {
             get
             {
-                return AppSettings.GetValueOrDefault(MobileCenterID_AndroidKey, SettingsDefault);
+                return AppSettings.GetValueOrDefault(AppCenterID_AndroidKey, SettingsDefault);
             }
             set
             {
-                AppSettings.AddOrUpdateValue(MobileCenterID_AndroidKey, value);
+                AppSettings.AddOrUpdateValue(AppCenterID_AndroidKey, value);
             }
         }
 
-        public static string MobileCenterID_iOS
+        public static string AppCenterID_iOS
         {
             get
             {
-                return AppSettings.GetValueOrDefault(MobileCenterID_iOSKey, SettingsDefault);
+                return AppSettings.GetValueOrDefault(AppCenterID_iOSKey, SettingsDefault);
             }
             set
             {
-                AppSettings.AddOrUpdateValue(MobileCenterID_iOSKey, value);
-            }
-        }
-
-        public static string NotificationAccessSignature
-        {
-            get
-            {
-                return AppSettings.GetValueOrDefault(NotificationAccessSignatureKey, SettingsDefault);
-            }
-            set
-            {
-                AppSettings.AddOrUpdateValue(NotificationAccessSignatureKey, value);
-            }
-        }
-
-        public static string NotificationHubName
-        {
-            get
-            {
-                return AppSettings.GetValueOrDefault(NotificationHubNameKey, SettingsDefault);
-            }
-            set
-            {
-                AppSettings.AddOrUpdateValue(NotificationHubNameKey, value);
+                AppSettings.AddOrUpdateValue(AppCenterID_iOSKey, value);
             }
         }
 

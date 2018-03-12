@@ -11,7 +11,7 @@ namespace IntelligentHack.iOS.Services
         public void Initialize()
         {
             //telemetry on Mobile Center.
-            AppCenter.Start(Settings.MobileCenterID_iOS, typeof(Analytics), typeof(Crashes));
+            AppCenter.Start(Settings.AppCenterID_iOS, typeof(Analytics), typeof(Crashes));
         }
     }
 }
