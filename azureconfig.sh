@@ -184,6 +184,11 @@ ConfigureFunctionApp ()
     read -p "Paste your App Center Id for iOS: " appCenteriOS
     az functionapp config appsettings set --resource-group $resourceGroupName --name $functionAppName --settings AppCenterID_iOS=$appCenteriOS
     
+    # configure sender mail api key
+    read -p "Paste your SendGrid API Key: " sendGridAPIKey
+    az functionapp config appsettings set --resource-group $resourceGroupName --name $functionAppName --settings SendGrid_API_Key=$sendGridAPIKey
+ 
+    
     echo "Function App configured successfully!"
 }
 
