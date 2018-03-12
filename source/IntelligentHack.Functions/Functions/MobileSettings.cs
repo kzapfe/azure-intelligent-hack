@@ -29,8 +29,8 @@ namespace IntelligentHack.Functions
 
             Dictionary<string, string> result = new Dictionary<string, string>();
             result.Add(nameof(Settings.AzureWebJobsStorage), Settings.AzureWebJobsStorage);
-            result.Add(nameof(Settings.MobileCenterID_Android), Settings.MobileCenterID_Android);
-            result.Add(nameof(Settings.MobileCenterID_iOS), Settings.MobileCenterID_iOS);
+            result.Add(nameof(Settings.AppCenterID_Android), Settings.AppCenterID_Android);
+            result.Add(nameof(Settings.AppCenterID_iOS), Settings.AppCenterID_iOS);
             result.Add(nameof(Settings.ImageStorageUrl), Settings.ImageStorageUrl);
             return req.CreateResponse(HttpStatusCode.OK, result);
         }

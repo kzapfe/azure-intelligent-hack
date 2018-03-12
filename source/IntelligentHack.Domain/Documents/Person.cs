@@ -22,11 +22,11 @@ namespace IntelligentHack.Domain
         [JsonProperty("lastname")]
         public string Lastname { get; set; }
 
-        [JsonProperty("locationofloss")]
-        public string LocationOfLoss { get; set; }
+        [JsonProperty("locationoflost")]
+        public string LocationOfLost { get; set; }
 
-        [JsonProperty("dateofloss")]
-        public string DateOfLoss { get; set; }
+        [JsonProperty("dateoflost")]
+        public string DateOfLost { get; set; }
 
         [JsonProperty("reportid")]
         public string ReportId { get; set; }

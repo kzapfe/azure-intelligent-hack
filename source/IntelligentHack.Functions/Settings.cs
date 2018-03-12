@@ -21,11 +21,11 @@ namespace IntelligentHack.Functions
 
         public static string CryptographyKey = Environment.GetEnvironmentVariable("Cryptography_Key");
 
-        public static string MobileCenterID_Android = Environment.GetEnvironmentVariable("MobileCenterID_Android");
-        public static string MobileCenterID_iOS = Environment.GetEnvironmentVariable("MobileCenterID_iOS");
+        public static string AppCenterID_Android = Environment.GetEnvironmentVariable("AppCenterID_Android");
+        public static string AppCenterID_iOS = Environment.GetEnvironmentVariable("AppCenterID_iOS");
 
         public static string ImageStorageUrl = Environment.GetEnvironmentVariable("ImageStorageUrl");
 
-        public static string ModeratorImageAPIKey = Environment.GetEnvironmentVariable("ModeratorImage_API_Subscription_Key");
+        public static string SendGridAPIKey = Environment.GetEnvironmentVariable("SendGrid_API_Key");
     }
 }
