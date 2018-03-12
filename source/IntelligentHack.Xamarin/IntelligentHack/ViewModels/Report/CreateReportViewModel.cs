@@ -116,18 +116,18 @@ namespace IntelligentHack.ViewModels
             set { SetProperty(ref lastname, value); }
         }
 
-        private string locationOfLoss;
-        public string LocationOfLoss
+        private string locationOfLost;
+        public string LocationOfLost
         {
-            get { return locationOfLoss; }
-            set { SetProperty(ref locationOfLoss, value); }
+            get { return locationOfLost; }
+            set { SetProperty(ref locationOfLost, value); }
         }
 
-        private string dateOfLoss;
-        public string DateOfLoss
+        private string dateOfLost;
+        public string DateOfLost
         {
-            get { return dateOfLoss; }
-            set { SetProperty(ref dateOfLoss, value); }
+            get { return dateOfLost; }
+            set { SetProperty(ref dateOfLost, value); }
         }
 
         private string reportId;
@@ -295,8 +295,8 @@ namespace IntelligentHack.ViewModels
                     ReportedBy = this.reportedBy,
                     Name = this.Name,
                     Lastname = this.Lastname,
-                    LocationOfLoss = this.LocationOfLoss,
-                    DateOfLoss = this.DateOfLoss,
+                    LocationOfLost = this.LocationOfLost,
+                    DateOfLost = this.DateOfLost,
                     ReportId = this.ReportId,
                     Genre = this.SelectedGenre,
                     Complexion = this.Complexion,
@@ -360,9 +360,9 @@ namespace IntelligentHack.ViewModels
                 return false;
             if (String.IsNullOrEmpty(Lastname))
                 return false;
-            if (String.IsNullOrEmpty(LocationOfLoss))
+            if (String.IsNullOrEmpty(LocationOfLost))
                 return false;
-            if (String.IsNullOrEmpty(DateOfLoss))
+            if (String.IsNullOrEmpty(DateOfLost))
                 return false;
             if (String.IsNullOrEmpty(ReportId))
                 return false;
@@ -492,14 +492,14 @@ namespace IntelligentHack.ViewModels
             get { return Resx.AppResources.ResourceManager.GetString(nameof(CreateReport_Lastname), Resx.AppResources.Culture); }
         }
 
-        public string CreateReport_LocationOfLoss
+        public string CreateReport_LocationOfLost
         {
-            get { return Resx.AppResources.ResourceManager.GetString(nameof(CreateReport_LocationOfLoss), Resx.AppResources.Culture); }
+            get { return Resx.AppResources.ResourceManager.GetString(nameof(CreateReport_LocationOfLost), Resx.AppResources.Culture); }
         }
 
-        public string CreateReport_DateOfLoss
+        public string CreateReport_DateOfLost
         {
-            get { return Resx.AppResources.ResourceManager.GetString(nameof(CreateReport_DateOfLoss), Resx.AppResources.Culture); }
+            get { return Resx.AppResources.ResourceManager.GetString(nameof(CreateReport_DateOfLost), Resx.AppResources.Culture); }
         }
 
         public string CreateReport_ReportId

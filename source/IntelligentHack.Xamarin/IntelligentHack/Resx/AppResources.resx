@@ -137,12 +137,12 @@
         <value>Lastname *</value>
         <comment></comment>
     </data>
-    <data name="CreateReport_LocationOfLoss" xml:space="preserve">
-        <value>Location of loss *</value>
+    <data name="CreateReport_LocationOfLost" xml:space="preserve">
+        <value>Location of lost *</value>
         <comment></comment>
     </data>
-    <data name="CreateReport_DateOfLoss" xml:space="preserve">
-        <value>Date of loss *</value>
+    <data name="CreateReport_DateOfLost" xml:space="preserve">
+        <value>Date of lost *</value>
         <comment></comment>
     </data>
     <data name="CreateReport_ReportId" xml:space="preserve">

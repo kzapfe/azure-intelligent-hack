@@ -8,8 +8,8 @@ namespace IntelligentHack.Pages
         private int ReportedByRestrictCount = 200;
         private int NameRestrictCount = 100;
         private int LastNameRestrictCount = 100;
-        private int LocationOfLossRestrictCount = 350;
-        private int DateOfLossRestrictCount = 100;
+        private int LocationOfLostRestrictCount = 350;
+        private int DateOfLostRestrictCount = 100;
         private int ReportIdRestrictCount = 100;
 
         public CreateReportPage()
@@ -19,8 +19,8 @@ namespace IntelligentHack.Pages
             this.FindByName<Entry>("reportedBy").TextChanged += ReportedByOnTextChanged;
             this.FindByName<Entry>("name").TextChanged += NameOnTextChanged;
             this.FindByName<Entry>("lastname").TextChanged += LastNameOnTextChanged;
-            this.FindByName<Entry>("locationOfLoss").TextChanged += LocationOfLossOnTextChanged;
-            this.FindByName<Entry>("dateOfLoss").TextChanged += DateOfLossOnTextChanged;
+            this.FindByName<Entry>("locationOfLost").TextChanged += LocationOfLostOnTextChanged;
+            this.FindByName<Entry>("dateOfLost").TextChanged += DateOfLostOnTextChanged;
             this.FindByName<Entry>("reportId").TextChanged += ReportIdOnTextChanged;
         }
 
@@ -33,7 +33,7 @@ namespace IntelligentHack.Pages
         private void ReportedByOnTextChanged(object sender, TextChangedEventArgs e)
         {
             Entry entry = sender as Entry;
-            OnTextChanged("reportedBy", entry.Text, ReportedByRestrictCount);
+            OnTextChanged2("reportedBy", entry.Text, ReportedByRestrictCount);
         }
 
         private void NameOnTextChanged(object sender, TextChangedEventArgs e)
@@ -48,16 +48,16 @@ namespace IntelligentHack.Pages
             OnTextChanged("lastname", entry.Text, LastNameRestrictCount);
         }
 
-        private void LocationOfLossOnTextChanged(object sender, TextChangedEventArgs e)
+        private void LocationOfLostOnTextChanged(object sender, TextChangedEventArgs e)
         {
             Entry entry = sender as Entry;
-            OnTextChanged("locationOfLoss", entry.Text, LocationOfLossRestrictCount);
+            OnTextChanged("locationOfLost", entry.Text, LocationOfLostRestrictCount);
         }
 
-        private void DateOfLossOnTextChanged(object sender, TextChangedEventArgs e)
+        private void DateOfLostOnTextChanged(object sender, TextChangedEventArgs e)
         {
             Entry entry = sender as Entry;
-            OnTextChanged("dateOfLoss", entry.Text, DateOfLossRestrictCount);
+            OnTextChanged("dateOfLost", entry.Text, DateOfLostRestrictCount);
         }
 
         private void ReportIdOnTextChanged(object sender, TextChangedEventArgs e)
@@ -69,6 +69,15 @@ namespace IntelligentHack.Pages
         private void OnTextChanged(string entryName, string text, int restrictCount)
         {
             if ((text.Length > restrictCount) || (text.Contains(".")))
+            {
+                text = text.Remove(text.Length - 1);
+                this.FindByName<Entry>(entryName).Text = text;
+            }
+        }
+
+        private void OnTextChanged2(string entryName, string text, int restrictCount)
+        {
+            if (text.Length > restrictCount)
             {
                 text = text.Remove(text.Length - 1);
                 this.FindByName<Entry>(entryName).Text = text;

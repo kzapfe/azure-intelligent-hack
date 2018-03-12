@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <pages:BasePage 
     x:Class="IntelligentHack.Pages.SearchPersonResultPage" 
     xmlns="http://xamarin.com/schemas/2014/forms" 
@@ -22,7 +22,7 @@
                                 <StackLayout Grid.Column="1" VerticalOptions="Center">
                                     <Label LineBreakMode="TailTruncation" Text="{Binding Name}" />
                                     <Label LineBreakMode="TailTruncation" Text="{Binding Lastname}" />
-                                    <Label LineBreakMode="TailTruncation" Text="{Binding LocationOfLoss}" />
+                                    <Label LineBreakMode="TailTruncation" Text="{Binding LocationOfLost}" />
                                 </StackLayout>
                             </Grid>
                         </ViewCell>

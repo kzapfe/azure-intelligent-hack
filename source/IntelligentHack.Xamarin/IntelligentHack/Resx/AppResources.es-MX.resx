@@ -137,11 +137,11 @@
         <value>Apellido *</value>
         <comment></comment>
     </data>
-    <data name="CreateReport_LocationOfLoss" xml:space="preserve">
+    <data name="CreateReport_LocationOfLost" xml:space="preserve">
         <value>Lugar de extravío *</value>
         <comment></comment>
     </data>
-    <data name="CreateReport_DateOfLoss" xml:space="preserve">
+    <data name="CreateReport_DateOfLost" xml:space="preserve">
         <value>Fecha de extravío *</value>
         <comment></comment>
     </data>

@@ -233,15 +233,15 @@ namespace IntelligentHack.Resx {
             }
         }
         
-        internal static string CreateReport_LocationOfLoss {
+        internal static string CreateReport_LocationOfLost {
             get {
-                return ResourceManager.GetString("CreateReport_LocationOfLoss", resourceCulture);
+                return ResourceManager.GetString("CreateReport_LocationOfLost", resourceCulture);
             }
         }
         
-        internal static string CreateReport_DateOfLoss {
+        internal static string CreateReport_DateOfLost {
             get {
-                return ResourceManager.GetString("CreateReport_DateOfLoss", resourceCulture);
+                return ResourceManager.GetString("CreateReport_DateOfLost", resourceCulture);
             }
         }
         

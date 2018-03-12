@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <pages:BasePage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="IntelligentHack.Pages.PersonDetailPage" xmlns:converters="clr-namespace:IntelligentHack.Pages.Converters" xmlns:effects="clr-namespace:IntelligentHack.Pages.Effects" xmlns:pages="clr-namespace:IntelligentHack.Pages" Title="{Binding Title}">
     <pages:BasePage.Resources>
         <ResourceDictionary>
@@ -31,10 +31,10 @@
                             <Label HorizontalOptions="FillAndExpand" Text="{Binding Path=CurrentPerson.Name, Converter={StaticResource nonAvailableCvt}}" LineBreakMode="WordWrap" />
                             <Label Style="{DynamicResource PreviewBoldLabel}" Text="{Binding CreateReport_Lastname}" />
                             <Label HorizontalOptions="FillAndExpand" Text="{Binding Path=CurrentPerson.Lastname, Converter={StaticResource nonAvailableCvt}}" LineBreakMode="WordWrap" />
-                            <Label Style="{DynamicResource PreviewBoldLabel}" Text="{Binding CreateReport_LocationOfLoss}" />
-                            <Label HorizontalOptions="FillAndExpand" Text="{Binding Path=CurrentPerson.LocationOfLoss, Converter={StaticResource nonAvailableCvt}}" LineBreakMode="WordWrap" />
-                            <Label Style="{DynamicResource PreviewBoldLabel}" Text="{Binding CreateReport_DateOfLoss}" />
-                            <Label HorizontalOptions="FillAndExpand" Text="{Binding Path=CurrentPerson.DateOfLoss, Converter={StaticResource nonAvailableCvt}}" LineBreakMode="WordWrap" />
+                            <Label Style="{DynamicResource PreviewBoldLabel}" Text="{Binding CreateReport_LocationOfLost}" />
+                            <Label HorizontalOptions="FillAndExpand" Text="{Binding Path=CurrentPerson.LocationOfLost, Converter={StaticResource nonAvailableCvt}}" LineBreakMode="WordWrap" />
+                            <Label Style="{DynamicResource PreviewBoldLabel}" Text="{Binding CreateReport_DateOfLost}" />
+                            <Label HorizontalOptions="FillAndExpand" Text="{Binding Path=CurrentPerson.DateOfLost, Converter={StaticResource nonAvailableCvt}}" LineBreakMode="WordWrap" />
                             <Label Style="{DynamicResource PreviewBoldLabel}" Text="{Binding CreateReport_ReportId}" />
                             <Label HorizontalOptions="FillAndExpand" Text="{Binding Path=CurrentPerson.ReportId, Converter={StaticResource nonAvailableCvt}}" LineBreakMode="WordWrap" />
                             <Label Style="{DynamicResource PreviewBoldLabel}" Text="{Binding CreateReport_Genre}" />

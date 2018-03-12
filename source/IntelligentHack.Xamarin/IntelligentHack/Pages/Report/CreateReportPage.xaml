@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <pages:BasePage x:Class="IntelligentHack.Pages.CreateReportPage" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:behaviors="clr-namespace:IntelligentHack.Pages.Behaviors" xmlns:converters="clr-namespace:IntelligentHack.Pages.Converters" xmlns:effects="clr-namespace:IntelligentHack.Pages.Effects" xmlns:viewmodels="clr-namespace:IntelligentHack.ViewModels" xmlns:pages="clr-namespace:IntelligentHack.Pages" Title="{Binding Title}" IsBusy="{Binding IsBusy}">
     <pages:BasePage.BindingContext>
         <viewmodels:CreateReportViewModel />
@@ -54,18 +54,18 @@
                                 <effects:KeyboardReturnEffect />
                             </Entry.Effects>
                             <Entry.Behaviors>
-                                <behaviors:NextEntryFocusBehavior NextEntry="{x:Reference locationOfLoss}" />
+                                <behaviors:NextEntryFocusBehavior NextEntry="{x:Reference locationOfLost}" />
                             </Entry.Behaviors>
                         </Entry>
-                        <Entry x:Name="locationOfLoss" Style="{DynamicResource RegistrationEntry}" Placeholder="{Binding CreateReport_LocationOfLoss}" Text="{Binding LocationOfLoss}">
+                        <Entry x:Name="locationOfLost" Style="{DynamicResource RegistrationEntry}" Placeholder="{Binding CreateReport_LocationOfLost}" Text="{Binding LocationOfLost}">
                             <Entry.Effects>
                                 <effects:KeyboardReturnEffect />
                             </Entry.Effects>
                             <Entry.Behaviors>
-                                <behaviors:NextEntryFocusBehavior NextEntry="{x:Reference dateOfLoss}" />
+                                <behaviors:NextEntryFocusBehavior NextEntry="{x:Reference dateOfLost}" />
                             </Entry.Behaviors>
                         </Entry>
-                        <Entry x:Name="dateOfLoss" Style="{DynamicResource RegistrationEntry}" Placeholder="{Binding CreateReport_DateOfLoss}" Text="{Binding DateOfLoss}">
+                        <Entry x:Name="dateOfLost" Style="{DynamicResource RegistrationEntry}" Placeholder="{Binding CreateReport_DateOfLost}" Text="{Binding DateOfLost}">
                             <Entry.Effects>
                                 <effects:KeyboardReturnEffect />
                             </Entry.Effects>

@@ -55,14 +55,14 @@ namespace IntelligentHack.ViewModels
             get { return Resx.AppResources.ResourceManager.GetString(nameof(CreateReport_Lastname), Resx.AppResources.Culture); }
         }
 
-        public string CreateReport_LocationOfLoss
+        public string CreateReport_LocationOfLost
         {
-            get { return Resx.AppResources.ResourceManager.GetString(nameof(CreateReport_LocationOfLoss), Resx.AppResources.Culture); }
+            get { return Resx.AppResources.ResourceManager.GetString(nameof(CreateReport_LocationOfLost), Resx.AppResources.Culture); }
         }
 
-        public string CreateReport_DateOfLoss
+        public string CreateReport_DateOfLost
         {
-            get { return Resx.AppResources.ResourceManager.GetString(nameof(CreateReport_DateOfLoss), Resx.AppResources.Culture); }
+            get { return Resx.AppResources.ResourceManager.GetString(nameof(CreateReport_DateOfLost), Resx.AppResources.Culture); }
         }
 
         public string CreateReport_ReportId
