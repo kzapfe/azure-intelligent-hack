@@ -129,52 +129,52 @@
   <data name="MenuReportSearch_Search" xml:space="preserve">
     <value>Search a person</value>
   </data>
-  <data name="RegistrationIdentification" xml:space="preserve">
+  <data name="Registration" xml:space="preserve">
     <value>Do you want to identify yourself?</value>
   </data>
-  <data name="RegistrationIdentification_AdviseNoIdentification" xml:space="preserve">
+  <data name="Registration_AdviseNoIdentification" xml:space="preserve">
     <value>You are not identified, the registration will be performed in anonymous mode.</value>
   </data>
-  <data name="RegistrationIdentification_Country" xml:space="preserve">
+  <data name="Registration_Country" xml:space="preserve">
     <value>Introduce the country where was the lost (US, MX).</value>
   </data>
-  <data name="RegistrationIdentification_DateOfLost" xml:space="preserve">
+  <data name="Registration_DateOfLost" xml:space="preserve">
     <value>Introduce the date of the lost (mm/dd/yyyy).</value>
   </data>
-  <data name="RegistrationIdentification_Fail" xml:space="preserve">
+  <data name="Registration_Fail" xml:space="preserve">
     <value>There was an error registering the report.</value>
   </data>
-  <data name="RegistrationIdentification_InProgress" xml:space="preserve">
+  <data name="Registration_InProgress" xml:space="preserve">
     <value>Registration in progress.</value>
   </data>
-  <data name="RegistrationIdentification_Lastname" xml:space="preserve">
+  <data name="Registration_Lastname" xml:space="preserve">
     <value>Introduce the lastname of the missing person.</value>
   </data>
-  <data name="RegistrationIdentification_LocationOfLost" xml:space="preserve">
+  <data name="Registration_LocationOfLost" xml:space="preserve">
     <value>Introduce the location of the lost.</value>
   </data>
-  <data name="RegistrationIdentification_Name" xml:space="preserve">
+  <data name="Registration_Name" xml:space="preserve">
     <value>Introduce the name of the missing person.</value>
   </data>
-  <data name="RegistrationIdentification_No" xml:space="preserve">
+  <data name="Registration_No" xml:space="preserve">
     <value>No</value>
   </data>
-  <data name="RegistrationIdentification_NotValid" xml:space="preserve">
+  <data name="Registration_NotValid" xml:space="preserve">
     <value>Not a valid option.</value>
   </data>
-  <data name="RegistrationIdentification_ReportedBy" xml:space="preserve">
+  <data name="Registration_ReportedBy" xml:space="preserve">
     <value>Introduce the email address where we will reach you with the details of the registration.</value>
   </data>
-  <data name="RegistrationIdentification_ReportId" xml:space="preserve">
+  <data name="Registration_ReportId" xml:space="preserve">
     <value>Introduce the identifier of the report.</value>
   </data>
-  <data name="RegistrationIdentification_Success" xml:space="preserve">
+  <data name="Registration_Success" xml:space="preserve">
     <value>The report has been successfully registered. You will receive in shortly an email with more details about the registration.</value>
   </data>
-  <data name="RegistrationIdentification_WaitingForImage" xml:space="preserve">
-    <value>Upload a photo of the missing person.</value>
+  <data name="Registration_WaitingForImage" xml:space="preserve">
+    <value>Upload a photo of the missing person (image file supported: jpg).</value>
   </data>
-  <data name="RegistrationIdentification_Yes" xml:space="preserve">
+  <data name="Registration_Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
   <data name="TooManyAttempts" xml:space="preserve">
@@ -182,5 +182,29 @@
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Welcome to Intelligent Hack Bot.</value>
+  </data>
+  <data name="Search_NameLastname" xml:space="preserve">
+    <value>By name and lastname</value>
+  </data>
+  <data name="Search_NotValid" xml:space="preserve">
+    <value>Not a valid option.</value>
+  </data>
+  <data name="Search_Photo" xml:space="preserve">
+    <value>By photo</value>
+  </data>
+  <data name="Search_Question" xml:space="preserve">
+    <value>Do you want to search by photo or by name and lastname?</value>
+  </data>
+  <data name="Search_WaitingForImage" xml:space="preserve">
+    <value>Upload a photo of the missing person (image file supported: jpg).</value>
+  </data>
+  <data name="Search_InProgress" xml:space="preserve">
+    <value>Verification in progress.</value>
+  </data>
+  <data name="Search_VerificationError" xml:space="preserve">
+    <value>There was an error with the search.</value>
+  </data>
+  <data name="Search_NoItems" xml:space="preserve">
+    <value>No person was found.</value>
   </data>
 </root>

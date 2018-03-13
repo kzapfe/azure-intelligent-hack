@@ -12,5 +12,12 @@ namespace IntelligentHack.Bot
         public static bool EnableCustomLog { get; set; }
 
         public static bool EnableVerboseLog { get; set; }
+
+        public static string FunctionURL { get; set; }
+
+        public static string Cryptography { get; set; }
+
+        public static string ImageStorageUrl { get; set; }
+
     }
 }

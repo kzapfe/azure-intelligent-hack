@@ -47,6 +47,7 @@ namespace IntelligentHack.Bot.Dialogs
                 }
                 else if (selected.ToLower().Contains($"{Resources.Resource.MenuReportSearch_Search.ToLower()}"))
                 {
+                    await context.Forward(new SearchDialog(), AfterSearchAsync, context.Activity, CancellationToken.None);
                 }
             }
             catch (TooManyAttemptsException)
@@ -56,6 +57,11 @@ namespace IntelligentHack.Bot.Dialogs
         }
 
         private async Task AfterRegistrationAsync(IDialogContext context, IAwaitable<object> result)
+        {
+            ClearConversation(context);
+        }
+
+        private async Task AfterSearchAsync(IDialogContext context, IAwaitable<object> result)
         {
             ClearConversation(context);
         }

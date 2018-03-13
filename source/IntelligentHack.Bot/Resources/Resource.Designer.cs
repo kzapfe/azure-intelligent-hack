@@ -99,144 +99,216 @@ namespace IntelligentHack.Bot.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Do you want to identify yourself?.
         /// </summary>
-        internal static string RegistrationIdentification {
+        internal static string Registration {
             get {
-                return ResourceManager.GetString("RegistrationIdentification", resourceCulture);
+                return ResourceManager.GetString("Registration", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to You are not identified, the registration will be performed in anonymous mode..
         /// </summary>
-        internal static string RegistrationIdentification_AdviseNoIdentification {
+        internal static string Registration_AdviseNoIdentification {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_AdviseNoIdentification", resourceCulture);
+                return ResourceManager.GetString("Registration_AdviseNoIdentification", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Introduce the country where was the lost (US, MX)..
         /// </summary>
-        internal static string RegistrationIdentification_Country {
+        internal static string Registration_Country {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_Country", resourceCulture);
+                return ResourceManager.GetString("Registration_Country", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Introduce the date of the lost (mm/dd/yyyy)..
         /// </summary>
-        internal static string RegistrationIdentification_DateOfLost {
+        internal static string Registration_DateOfLost {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_DateOfLost", resourceCulture);
+                return ResourceManager.GetString("Registration_DateOfLost", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to There was an error registering the report..
         /// </summary>
-        internal static string RegistrationIdentification_Fail {
+        internal static string Registration_Fail {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_Fail", resourceCulture);
+                return ResourceManager.GetString("Registration_Fail", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Registration in progress..
         /// </summary>
-        internal static string RegistrationIdentification_InProgress {
+        internal static string Registration_InProgress {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_InProgress", resourceCulture);
+                return ResourceManager.GetString("Registration_InProgress", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Introduce the lastname of the missing person..
         /// </summary>
-        internal static string RegistrationIdentification_Lastname {
+        internal static string Registration_Lastname {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_Lastname", resourceCulture);
+                return ResourceManager.GetString("Registration_Lastname", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Introduce the location of the lost..
         /// </summary>
-        internal static string RegistrationIdentification_LocationOfLost {
+        internal static string Registration_LocationOfLost {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_LocationOfLost", resourceCulture);
+                return ResourceManager.GetString("Registration_LocationOfLost", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Introduce the name of the missing person..
         /// </summary>
-        internal static string RegistrationIdentification_Name {
+        internal static string Registration_Name {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_Name", resourceCulture);
+                return ResourceManager.GetString("Registration_Name", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
-        internal static string RegistrationIdentification_No {
+        internal static string Registration_No {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_No", resourceCulture);
+                return ResourceManager.GetString("Registration_No", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Not a valid option..
         /// </summary>
-        internal static string RegistrationIdentification_NotValid {
+        internal static string Registration_NotValid {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_NotValid", resourceCulture);
+                return ResourceManager.GetString("Registration_NotValid", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Introduce the email address where we will reach you with the details of the registration..
         /// </summary>
-        internal static string RegistrationIdentification_ReportedBy {
+        internal static string Registration_ReportedBy {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_ReportedBy", resourceCulture);
+                return ResourceManager.GetString("Registration_ReportedBy", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Introduce the identifier of the report..
         /// </summary>
-        internal static string RegistrationIdentification_ReportId {
+        internal static string Registration_ReportId {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_ReportId", resourceCulture);
+                return ResourceManager.GetString("Registration_ReportId", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The report has been successfully registered. You will receive in shortly an email with more details about the registration..
         /// </summary>
-        internal static string RegistrationIdentification_Success {
+        internal static string Registration_Success {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_Success", resourceCulture);
+                return ResourceManager.GetString("Registration_Success", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upload a photo of the missing person..
+        ///   Looks up a localized string similar to Upload a photo of the missing person (image file supported: jpg)..
         /// </summary>
-        internal static string RegistrationIdentification_WaitingForImage {
+        internal static string Registration_WaitingForImage {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_WaitingForImage", resourceCulture);
+                return ResourceManager.GetString("Registration_WaitingForImage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Yes.
         /// </summary>
-        internal static string RegistrationIdentification_Yes {
+        internal static string Registration_Yes {
             get {
-                return ResourceManager.GetString("RegistrationIdentification_Yes", resourceCulture);
+                return ResourceManager.GetString("Registration_Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verification in progress..
+        /// </summary>
+        internal static string Search_InProgress {
+            get {
+                return ResourceManager.GetString("Search_InProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By name and lastname.
+        /// </summary>
+        internal static string Search_NameLastname {
+            get {
+                return ResourceManager.GetString("Search_NameLastname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No person was found..
+        /// </summary>
+        internal static string Search_NoItems {
+            get {
+                return ResourceManager.GetString("Search_NoItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not a valid option..
+        /// </summary>
+        internal static string Search_NotValid {
+            get {
+                return ResourceManager.GetString("Search_NotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By photo.
+        /// </summary>
+        internal static string Search_Photo {
+            get {
+                return ResourceManager.GetString("Search_Photo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to search by photo or by name and lastname?.
+        /// </summary>
+        internal static string Search_Question {
+            get {
+                return ResourceManager.GetString("Search_Question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was an error with the search..
+        /// </summary>
+        internal static string Search_VerificationError {
+            get {
+                return ResourceManager.GetString("Search_VerificationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upload a photo of the missing person (image file supported: jpg)..
+        /// </summary>
+        internal static string Search_WaitingForImage {
+            get {
+                return ResourceManager.GetString("Search_WaitingForImage", resourceCulture);
             }
         }
         

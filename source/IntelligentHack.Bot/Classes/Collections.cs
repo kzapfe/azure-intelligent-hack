@@ -6,13 +6,25 @@ namespace IntelligentHack.Bot.Classes
     public class Collections
     {
         [Serializable]
-        public class RegistrationIdentification
+        public class Search
         {
             public static List<string> CreateList()
             {
                 List<string> list = new List<string>();
-                list.Add($"{Resources.Resource.RegistrationIdentification_Yes}");
-                list.Add($"{Resources.Resource.RegistrationIdentification_No}");
+                list.Add($"{Resources.Resource.Search_Photo}");
+                list.Add($"{Resources.Resource.Search_NameLastname}");
+                return list;
+            }
+        }
+
+        [Serializable]
+        public class Registration
+        {
+            public static List<string> CreateList()
+            {
+                List<string> list = new List<string>();
+                list.Add($"{Resources.Resource.Registration_Yes}");
+                list.Add($"{Resources.Resource.Registration_No}");
                 return list;
             }
         }

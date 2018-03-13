@@ -27,23 +27,23 @@ namespace IntelligentHack.Bot.Dialogs
 
         private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<object> result)
         {
-            string QuestionPrompt = $"{Resources.Resource.RegistrationIdentification}";
-            PromptOptions<string> options = new PromptOptions<string>(QuestionPrompt, $"{Resources.Resource.RegistrationIdentification_NotValid}", $"{Resources.Resource.TooManyAttempts}", Collections.RegistrationIdentification.CreateList(), 1);
-            PromptDialog.Choice<string>(context, OnRegistrationIdentificationSelected, options);
+            string QuestionPrompt = $"{Resources.Resource.Registration}";
+            PromptOptions<string> options = new PromptOptions<string>(QuestionPrompt, $"{Resources.Resource.Registration_NotValid}", $"{Resources.Resource.TooManyAttempts}", Collections.Registration.CreateList(), 1);
+            PromptDialog.Choice<string>(context, OnRegistrationSelected, options);
         }
 
-        private async Task OnRegistrationIdentificationSelected(IDialogContext context, IAwaitable<string> result)
+        private async Task OnRegistrationSelected(IDialogContext context, IAwaitable<string> result)
         {
             try
             {
                 string selected = await result;
 
-                if (selected.ToLower().Contains($"{Resources.Resource.RegistrationIdentification_Yes.ToLower()}"))
+                if (selected.ToLower().Contains($"{Resources.Resource.Registration_Yes.ToLower()}"))
                 {
                 }
-                else if (selected.ToLower().Contains($"{Resources.Resource.RegistrationIdentification_No.ToLower()}"))
+                else if (selected.ToLower().Contains($"{Resources.Resource.Registration_No.ToLower()}"))
                 {
-                    await context.PostAsync($"{Resources.Resource.RegistrationIdentification_AdviseNoIdentification}");
+                    await context.PostAsync($"{Resources.Resource.Registration_AdviseNoIdentification}");
                     var registrationFormDialog = FormDialog.FromForm(this.BuildRegistrationForm, FormOptions.PromptFieldsWithValues);
                     await context.Forward(registrationFormDialog, AfterRegistrationAsync, context.Activity, CancellationToken.None);
                 }
@@ -58,18 +58,18 @@ namespace IntelligentHack.Bot.Dialogs
         {
             OnCompletionAsyncDelegate<RegistrationQuery> processRegistration = async (context, state) =>
             {
-                await context.PostAsync($"{Resources.Resource.RegistrationIdentification_WaitingForImage}");
+                await context.PostAsync($"{Resources.Resource.Registration_WaitingForImage}");
                 context.PrivateConversationData.SetValue(REGISTRATIONDATA, state);
             };
 
             return new FormBuilder<RegistrationQuery>()
-                .Field(nameof(RegistrationQuery.Name), $"{Resources.Resource.RegistrationIdentification_Name}")
-                .Field(nameof(RegistrationQuery.Lastname), $"{Resources.Resource.RegistrationIdentification_Lastname}")
-                .Field(nameof(RegistrationQuery.Country), $"{Resources.Resource.RegistrationIdentification_Country}")
-                .Field(nameof(RegistrationQuery.LocationOfLost), $"{Resources.Resource.RegistrationIdentification_LocationOfLost}")
-                .Field(nameof(RegistrationQuery.DateOfLost), $"{Resources.Resource.RegistrationIdentification_DateOfLost}")
-                .Field(nameof(RegistrationQuery.ReportId), $"{Resources.Resource.RegistrationIdentification_ReportId}")
-                .Field(nameof(RegistrationQuery.ReportedBy), $"{Resources.Resource.RegistrationIdentification_ReportedBy}")
+                .Field(nameof(RegistrationQuery.Name), $"{Resources.Resource.Registration_Name}")
+                .Field(nameof(RegistrationQuery.Lastname), $"{Resources.Resource.Registration_Lastname}")
+                .Field(nameof(RegistrationQuery.Country), $"{Resources.Resource.Registration_Country}")
+                .Field(nameof(RegistrationQuery.LocationOfLost), $"{Resources.Resource.Registration_LocationOfLost}")
+                .Field(nameof(RegistrationQuery.DateOfLost), $"{Resources.Resource.Registration_DateOfLost}")
+                .Field(nameof(RegistrationQuery.ReportId), $"{Resources.Resource.Registration_ReportId}")
+                .Field(nameof(RegistrationQuery.ReportedBy), $"{Resources.Resource.Registration_ReportedBy}")
                 .OnCompletion(processRegistration)
                 .Build();
         }
@@ -81,7 +81,7 @@ namespace IntelligentHack.Bot.Dialogs
 
         private async Task ImageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
-            await context.PostAsync($"{Resources.Resource.RegistrationIdentification_InProgress}");
+            await context.PostAsync($"{Resources.Resource.Registration_InProgress}");
 
             var message = await result;
 
@@ -133,20 +133,20 @@ namespace IntelligentHack.Bot.Dialogs
                     Stream stream = new MemoryStream(imageBytes);
                     if (await StorageHelper.UploadPhoto(pid, stream))
                     {
-                        await context.PostAsync($"{Resources.Resource.RegistrationIdentification_Success}");
+                        await context.PostAsync($"{Resources.Resource.Registration_Success}");
                         TraceManager.SendTrace(context, "RegistrationDialog", "End");
                         context.Done("done");
                     }
                     else
                     {
-                        await context.PostAsync($"{Resources.Resource.RegistrationIdentification_Fail}");
+                        await context.PostAsync($"{Resources.Resource.Registration_Fail}");
                         TraceManager.SendTrace(context, "RegistrationDialog", "End");
                         context.Done("done");
                     }
                 }
                 catch (Exception)
                 {
-                    await context.PostAsync($"{Resources.Resource.RegistrationIdentification_Fail}");
+                    await context.PostAsync($"{Resources.Resource.Registration_Fail}");
                     TraceManager.SendTrace(context, "RegistrationDialog", "End");
                     context.Done("done");
                 }
@@ -154,7 +154,7 @@ namespace IntelligentHack.Bot.Dialogs
             }
             else
             {
-                await context.PostAsync($"{Resources.Resource.RegistrationIdentification_Fail}");
+                await context.PostAsync($"{Resources.Resource.Registration_Fail}");
                 TraceManager.SendTrace(context, "RegistrationDialog", "End");
                 context.Done("done");
             }

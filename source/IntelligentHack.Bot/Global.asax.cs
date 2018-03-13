@@ -23,6 +23,9 @@ namespace IntelligentHack.Bot
             Settings.AzureWebJobsStorage = ConfigurationManager.AppSettings["AzureWebJobsStorage"];
             Settings.EnableCustomLog = Convert.ToBoolean(ConfigurationManager.AppSettings["EnableCustomLog"]);
             Settings.EnableVerboseLog = Convert.ToBoolean(ConfigurationManager.AppSettings["EnableVerboseLog"]);
+            Settings.FunctionURL = ConfigurationManager.AppSettings["FunctionURL"];
+            Settings.Cryptography = ConfigurationManager.AppSettings["Cryptography"];
+            Settings.ImageStorageUrl = ConfigurationManager.AppSettings["ImageStorageUrl"];
 
             Conversation.UpdateContainer(
                 builder =>

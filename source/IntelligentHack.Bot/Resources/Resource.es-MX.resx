@@ -129,52 +129,52 @@
   <data name="MenuReportSearch_Search" xml:space="preserve">
     <value>Buscar una persona</value>
   </data>
-  <data name="RegistrationIdentification" xml:space="preserve">
+  <data name="Registration" xml:space="preserve">
     <value>Te quieres identificar?</value>
   </data>
-  <data name="RegistrationIdentification_AdviseNoIdentification" xml:space="preserve">
+  <data name="Registration_AdviseNoIdentification" xml:space="preserve">
     <value>No te encuentras identificado, el registro será realizado en modo anónimo.</value>
   </data>
-  <data name="RegistrationIdentification_Country" xml:space="preserve">
+  <data name="Registration_Country" xml:space="preserve">
     <value>Introduce el país donde se llevó el extravío (US, MX).</value>
   </data>
-  <data name="RegistrationIdentification_DateOfLost" xml:space="preserve">
+  <data name="Registration_DateOfLost" xml:space="preserve">
     <value>Introduce la fecha de extravío (mm/dd/yyyy).</value>
   </data>
-  <data name="RegistrationIdentification_Fail" xml:space="preserve">
+  <data name="Registration_Fail" xml:space="preserve">
     <value>Se presentó un error al realizar el registro del reporte.</value>
   </data>
-  <data name="RegistrationIdentification_InProgress" xml:space="preserve">
+  <data name="Registration_InProgress" xml:space="preserve">
     <value>Registro en progreso.</value>
   </data>
-  <data name="RegistrationIdentification_Lastname" xml:space="preserve">
+  <data name="Registration_Lastname" xml:space="preserve">
     <value>Introduce el apellido de la persona que se extravió.</value>
   </data>
-  <data name="RegistrationIdentification_LocationOfLost" xml:space="preserve">
+  <data name="Registration_LocationOfLost" xml:space="preserve">
     <value>Introduce el lugar de extravío.</value>
   </data>
-  <data name="RegistrationIdentification_Name" xml:space="preserve">
+  <data name="Registration_Name" xml:space="preserve">
     <value>Introduce el nombre de la persona que se extravió.</value>
   </data>
-  <data name="RegistrationIdentification_No" xml:space="preserve">
+  <data name="Registration_No" xml:space="preserve">
     <value>No</value>
   </data>
-  <data name="RegistrationIdentification_NotValid" xml:space="preserve">
+  <data name="Registration_NotValid" xml:space="preserve">
     <value>Opción no válida.</value>
   </data>
-  <data name="RegistrationIdentification_ReportedBy" xml:space="preserve">
+  <data name="Registration_ReportedBy" xml:space="preserve">
     <value>Introduce el correo electrónico donde podremos contactarte con los detalles del registro.</value>
   </data>
-  <data name="RegistrationIdentification_ReportId" xml:space="preserve">
+  <data name="Registration_ReportId" xml:space="preserve">
     <value>Introduce el reporte de extravío.</value>
   </data>
-  <data name="RegistrationIdentification_Success" xml:space="preserve">
+  <data name="Registration_Success" xml:space="preserve">
     <value>El reporte ha sido satisfactoriamente registrado. Pronto recibirás un correo electrónico con más detalles del registro.</value>
   </data>
-  <data name="RegistrationIdentification_WaitingForImage" xml:space="preserve">
-    <value>Sube una fotografía de la persona extraviada.</value>
+  <data name="Registration_WaitingForImage" xml:space="preserve">
+    <value>Sube una fotografía de la persona extraviada (archivo de imagen soportado: jpg).</value>
   </data>
-  <data name="RegistrationIdentification_Yes" xml:space="preserve">
+  <data name="Registration_Yes" xml:space="preserve">
     <value>Si</value>
   </data>
   <data name="TooManyAttempts" xml:space="preserve">
@@ -182,5 +182,29 @@
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Bienvenido al Bot Inteligente del Hack.</value>
+  </data>
+  <data name="Search_Question" xml:space="preserve">
+    <value>Deseas realizar una búsqueda por fotografía o por nombre y apellido?</value>
+  </data>
+  <data name="Search_NameLastname" xml:space="preserve">
+    <value>Por nombre y apellido</value>
+  </data>
+  <data name="Search_NotValid" xml:space="preserve">
+    <value>Opción no válida.</value>
+  </data>
+  <data name="Search_Photo" xml:space="preserve">
+    <value>Por fotografía</value>
+  </data>
+  <data name="Search_WaitingForImage" xml:space="preserve">
+    <value>Sube una fotografía de la persona extraviada  (archivo de imagen soportado: jpg).</value>
+  </data>
+  <data name="Search_InProgress" xml:space="preserve">
+    <value>Verificación en progreso.</value>
+  </data>
+  <data name="Search_VerificationError" xml:space="preserve">
+    <value>Error al realizar la búsqueda.</value>
+  </data>
+  <data name="Search_NoItems" xml:space="preserve">
+    <value>Ninguna persona fue encontrada.</value>
   </data>
 </root>
