@@ -126,7 +126,7 @@
         <comment></comment>
     </data>
     <data name="CreateReport_ReportedBy" xml:space="preserve">
-        <value>Reported by *</value>
+        <value>Reported by (email) *</value>
         <comment></comment>
     </data>
     <data name="CreateReport_Name" xml:space="preserve">

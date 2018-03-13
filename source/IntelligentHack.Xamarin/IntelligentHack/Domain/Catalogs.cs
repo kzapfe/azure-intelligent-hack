@@ -60,7 +60,8 @@ namespace IntelligentHack.Domain
         public static void InitCountries()
         {
             countries.Clear();
-            countries.Add("MX", "México");
+            countries.Add("US", "US");
+            countries.Add("MX", "MX");
         }
 
         public static List<string> GetCountries()
