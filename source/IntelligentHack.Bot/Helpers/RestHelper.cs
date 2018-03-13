@@ -14,6 +14,38 @@ namespace IntelligentHack.Bot.Helpers
 {
     public class RestHelper
     {
+        public static async Task<List<Person>> MetadataVerification(MetadataVerification metadata)
+        {
+            using (var client = new HttpClient())
+            {
+                var service = $"{Settings.FunctionURL}/api/MetadataVerification/";
+
+                byte[] time = BitConverter.GetBytes(DateTime.UtcNow.ToBinary());
+                byte[] key = Guid.NewGuid().ToByteArray();
+                var token = Convert.ToBase64String(time.Concat(key).ToArray());
+                token = SecurityHelper.Encrypt(token, Settings.Cryptography);
+
+                MetadataVerificationRequest request = new MetadataVerificationRequest();
+                request.Token = token;
+                request.Metadata = metadata;
+
+                byte[] byteData = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(request));
+                using (var content = new ByteArrayContent(byteData))
+                {
+                    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                    var httpResponse = await client.PostAsync(service, content);
+
+                    if (httpResponse.StatusCode == HttpStatusCode.OK)
+                    {
+                        var str = await httpResponse.Content.ReadAsStringAsync();
+                        List<Person> result = JsonConvert.DeserializeObject<List<Person>>(str);
+                        return result;
+                    }
+                }
+            }
+            return null;
+        }
+
         public static async Task<List<Person>> ImageVerification(string fileName)
         {
             using (var client = new HttpClient())

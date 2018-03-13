@@ -223,7 +223,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upload a photo of the missing person (image file supported: jpg)..
+        ///   Looks up a localized string similar to Upload a photo of the missing person..
         /// </summary>
         internal static string Registration_WaitingForImage {
             get {
@@ -304,7 +304,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upload a photo of the missing person (image file supported: jpg)..
+        ///   Looks up a localized string similar to Upload a photo of the missing person..
         /// </summary>
         internal static string Search_WaitingForImage {
             get {

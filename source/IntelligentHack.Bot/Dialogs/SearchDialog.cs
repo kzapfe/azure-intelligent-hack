@@ -45,11 +45,59 @@ namespace IntelligentHack.Bot.Dialogs
                 }
                 else if (selected.ToLower().Contains($"{Resources.Resource.Search_NameLastname.ToLower()}"))
                 {
+                    var registrationFormDialog = FormDialog.FromForm(this.BuildSearchForm, FormOptions.PromptFieldsWithValues);
+                    await context.Forward(registrationFormDialog, AfterSearchAsync, context.Activity, CancellationToken.None);
                 }
             }
             catch (TooManyAttemptsException)
             {
                 context.Wait(this.MessageReceivedAsync);
+            }
+        }
+
+        private IForm<SearchQuery> BuildSearchForm()
+        {
+            OnCompletionAsyncDelegate<SearchQuery> processSearch = async (context, state) =>
+            {
+            };
+
+            return new FormBuilder<SearchQuery>()
+                .Field(nameof(SearchQuery.Name), $"{Resources.Resource.Registration_Name}")
+                .Field(nameof(SearchQuery.Lastname), $"{Resources.Resource.Registration_Lastname}")
+                .Field(nameof(SearchQuery.Country), $"{Resources.Resource.Registration_Country}")
+                .OnCompletion(processSearch)
+                .Build();
+        }
+
+        private async Task AfterSearchAsync(IDialogContext context, IAwaitable<SearchQuery> result)
+        {
+            var state = await result;
+
+            MetadataVerification metadata = new MetadataVerification();
+            metadata.Name = state.Name;
+            metadata.Lastname = state.Lastname;
+            metadata.Country = state.Country.ToString();
+
+            var list = new List<Person>();
+            list = await RestHelper.MetadataVerification(metadata);
+
+            if (!list.Any())
+            {
+                await context.PostAsync($"{Resources.Resource.Search_NoItems}");
+                TraceManager.SendTrace(context, "SearchDialog", "End");
+                context.Done("done");
+            }
+            else
+            {
+                var reply = context.MakeMessage();
+
+                reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+                reply.Attachments = GetCardsAttachments(list);
+
+                await context.PostAsync(reply);
+
+                TraceManager.SendTrace(context, "SearchDialog", "End");
+                context.Done("done");
             }
         }
 

@@ -172,7 +172,7 @@
     <value>El reporte ha sido satisfactoriamente registrado. Pronto recibirás un correo electrónico con más detalles del registro.</value>
   </data>
   <data name="Registration_WaitingForImage" xml:space="preserve">
-    <value>Sube una fotografía de la persona extraviada (archivo de imagen soportado: jpg).</value>
+    <value>Sube una fotografía de la persona extraviada.</value>
   </data>
   <data name="Registration_Yes" xml:space="preserve">
     <value>Si</value>
@@ -196,7 +196,7 @@
     <value>Por fotografía</value>
   </data>
   <data name="Search_WaitingForImage" xml:space="preserve">
-    <value>Sube una fotografía de la persona extraviada  (archivo de imagen soportado: jpg).</value>
+    <value>Sube una fotografía de la persona extraviada.</value>
   </data>
   <data name="Search_InProgress" xml:space="preserve">
     <value>Verificación en progreso.</value>

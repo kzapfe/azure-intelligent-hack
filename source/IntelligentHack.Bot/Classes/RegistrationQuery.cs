@@ -1,6 +1,7 @@
 ﻿using Microsoft.Bot.Builder.FormFlow;
 using System;
 using System.Drawing;
+using static IntelligentHack.Bot.Classes.Collections;
 
 namespace IntelligentHack.Bot.Classes
 {
@@ -23,11 +24,5 @@ namespace IntelligentHack.Bot.Classes
         [Pattern(@"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
             @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$")]
         public string ReportedBy { get; set; }
-    }
-
-    public enum Country
-    {
-        US,
-        MX
     }
 }

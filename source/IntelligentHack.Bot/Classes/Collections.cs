@@ -5,6 +5,12 @@ namespace IntelligentHack.Bot.Classes
 {
     public class Collections
     {
+        public enum Country
+        {
+            US,
+            MX
+        }
+
         [Serializable]
         public class Search
         {

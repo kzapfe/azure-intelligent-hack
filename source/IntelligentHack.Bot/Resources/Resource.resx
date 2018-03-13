@@ -172,7 +172,7 @@
     <value>The report has been successfully registered. You will receive in shortly an email with more details about the registration.</value>
   </data>
   <data name="Registration_WaitingForImage" xml:space="preserve">
-    <value>Upload a photo of the missing person (image file supported: jpg).</value>
+    <value>Upload a photo of the missing person.</value>
   </data>
   <data name="Registration_Yes" xml:space="preserve">
     <value>Yes</value>
@@ -196,7 +196,7 @@
     <value>Do you want to search by photo or by name and lastname?</value>
   </data>
   <data name="Search_WaitingForImage" xml:space="preserve">
-    <value>Upload a photo of the missing person (image file supported: jpg).</value>
+    <value>Upload a photo of the missing person.</value>
   </data>
   <data name="Search_InProgress" xml:space="preserve">
     <value>Verification in progress.</value>
