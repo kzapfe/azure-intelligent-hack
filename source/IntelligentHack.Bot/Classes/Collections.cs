@@ -5,6 +5,12 @@ namespace IntelligentHack.Bot.Classes
 {
     public class Collections
     {
+        public enum Genre
+        {
+            M,
+            F
+        }
+
         public enum Country
         {
             US,

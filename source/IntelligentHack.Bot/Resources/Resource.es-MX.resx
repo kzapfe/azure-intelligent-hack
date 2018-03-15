@@ -207,4 +207,7 @@
   <data name="Search_NoItems" xml:space="preserve">
     <value>Ninguna persona fue encontrada.</value>
   </data>
+  <data name="Registration_Genre" xml:space="preserve">
+    <value>Introduce el género de la persona que se extravió (M/F).</value>
+  </data>
 </root>

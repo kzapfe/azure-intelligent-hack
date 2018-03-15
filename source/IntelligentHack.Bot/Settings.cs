@@ -7,7 +7,7 @@ namespace IntelligentHack.Bot
 {
     public class Settings
     {
-        public static string AzureWebJobsStorage { get; set; }
+        public static string DataStorage { get; set; }
 
         public static bool EnableCustomLog { get; set; }
 

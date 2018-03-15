@@ -70,6 +70,7 @@ namespace IntelligentHack.Bot.Dialogs
                 .Field(nameof(RegistrationQuery.DateOfLost), $"{Resources.Resource.Registration_DateOfLost}")
                 .Field(nameof(RegistrationQuery.ReportId), $"{Resources.Resource.Registration_ReportId}")
                 .Field(nameof(RegistrationQuery.ReportedBy), $"{Resources.Resource.Registration_ReportedBy}")
+                .Field(nameof(RegistrationQuery.Genre), $"{Resources.Resource.Registration_Genre}")
                 .OnCompletion(processRegistration)
                 .Build();
         }
@@ -96,7 +97,7 @@ namespace IntelligentHack.Bot.Dialogs
                 LocationOfLost = data.LocationOfLost,
                 DateOfLost = data.DateOfLost,
                 ReportId = data.ReportId,
-                Genre = string.Empty,
+                Genre = data.Genre.ToString(),
                 Complexion = string.Empty,
                 Skin = string.Empty,
                 Front = string.Empty,

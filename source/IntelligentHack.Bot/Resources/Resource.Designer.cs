@@ -142,6 +142,15 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Introduce the genre of the missing person (M/F)..
+        /// </summary>
+        internal static string Registration_Genre {
+            get {
+                return ResourceManager.GetString("Registration_Genre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Registration in progress..
         /// </summary>
         internal static string Registration_InProgress {

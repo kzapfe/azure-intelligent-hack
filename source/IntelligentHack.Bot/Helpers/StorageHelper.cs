@@ -21,7 +21,7 @@ namespace IntelligentHack.Bot.Helpers
         public static async Task<string> ProcessUploadPhoto(Stream stream, string fileName, bool IsVerification)
         {
             var container = IsVerification ? "verification" : "images";
-            var connectionString = Settings.AzureWebJobsStorage;
+            var connectionString = Settings.DataStorage;
 
             return await UploadFileAsync(stream, fileName, container, connectionString, "image/jpeg", true);
         }
@@ -45,7 +45,7 @@ namespace IntelligentHack.Bot.Helpers
         public static async Task<string> ProcessUploadMetadata(Stream stream, string fileName, Person person)
         {
             var container = "metadata";
-            var connectionString = Settings.AzureWebJobsStorage;
+            var connectionString = Settings.DataStorage;
 
             return await UploadFileAsync(stream, fileName, container, connectionString, "application/json", false);
         }
