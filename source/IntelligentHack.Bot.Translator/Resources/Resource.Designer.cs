@@ -268,7 +268,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No person was found..
+        ///   Looks up a localized string similar to No records found..
         /// </summary>
         internal static string Search_NoItems {
             get {
@@ -331,7 +331,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to Intelligent Hack Bot..
+        ///   Looks up a localized string similar to Welcome to the Intelligent Hack Bot!.
         /// </summary>
         internal static string Welcome {
             get {

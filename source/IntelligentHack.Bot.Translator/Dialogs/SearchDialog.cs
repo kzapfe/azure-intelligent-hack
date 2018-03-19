@@ -27,9 +27,9 @@ namespace IntelligentHack.Bot.Dialogs
 
         private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<object> result)
         {
-            string QuestionPrompt = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_Question}", Settings.SpecificLanguage);
-            string NotValid = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_NotValid}", Settings.SpecificLanguage);
-            string TooManyAttempts = await Translator.TranslateSentenceAsync($"{Resources.Resource.TooManyAttempts}", Settings.SpecificLanguage);
+            string QuestionPrompt = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Search_Question}", Settings.SpecificLanguage);
+            string NotValid = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Search_NotValid}", Settings.SpecificLanguage);
+            string TooManyAttempts = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.TooManyAttempts}", Settings.SpecificLanguage);
 
             PromptOptions<string> options = new PromptOptions<string>(QuestionPrompt, NotValid, TooManyAttempts, await Collections.Search.CreateList(), 1);
             PromptDialog.Choice<string>(context, OnSearchModeSelected, options);
@@ -41,13 +41,13 @@ namespace IntelligentHack.Bot.Dialogs
             {
                 string selected = await result;
 
-                string photo = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_Photo}", Settings.SpecificLanguage);
-                string namelastname = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_NameLastname}", Settings.SpecificLanguage);
+                string photo = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Search_Photo}", Settings.SpecificLanguage);
+                string namelastname = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Search_NameLastname}", Settings.SpecificLanguage);
 
 
                 if (selected.ToLower().Contains(photo.ToLower()))
                 {
-                    string waiting = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_WaitingForImage}", Settings.SpecificLanguage);
+                    string waiting = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Search_WaitingForImage}", Settings.SpecificLanguage);
 
                     await context.PostAsync(waiting);
                     context.Wait(ImageReceivedAsync);
@@ -67,9 +67,9 @@ namespace IntelligentHack.Bot.Dialogs
         private async Task<SearchQueryAllText> BuildAsync()
         {
             SearchQueryAllText result = new SearchQueryAllText();
-            result.Name = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Name}", Settings.SpecificLanguage);
-            result.Lastname = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Lastname}", Settings.SpecificLanguage);
-            result.CountryText = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Country}", Settings.SpecificLanguage);
+            result.Name = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Registration_Name}", Settings.SpecificLanguage);
+            result.Lastname = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Registration_Lastname}", Settings.SpecificLanguage);
+            result.CountryText = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Registration_Country}", Settings.SpecificLanguage);
 
             return result;
         }
@@ -105,7 +105,7 @@ namespace IntelligentHack.Bot.Dialogs
 
             if (!list.Any())
             {
-                var noitems = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_NoItems}", Settings.SpecificLanguage);
+                var noitems = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Search_NoItems}", Settings.SpecificLanguage);
 
                 await context.PostAsync(noitems);
                 TraceManager.SendTrace(context, "SearchDialog", "End");
@@ -127,7 +127,7 @@ namespace IntelligentHack.Bot.Dialogs
 
         private async Task ImageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
-            var inprogress = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_InProgress}", Settings.SpecificLanguage);
+            var inprogress = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Search_InProgress}", Settings.SpecificLanguage);
 
             await context.PostAsync(inprogress);
 
@@ -155,7 +155,7 @@ namespace IntelligentHack.Bot.Dialogs
             }
             else
             {
-                var verification = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_VerificationError}", Settings.SpecificLanguage);
+                var verification = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Search_VerificationError}", Settings.SpecificLanguage);
 
                 await context.PostAsync(verification);
                 TraceManager.SendTrace(context, "SearchDialog", "End");
@@ -164,7 +164,7 @@ namespace IntelligentHack.Bot.Dialogs
 
             if (!list.Any())
             {
-                var noitems = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_NoItems}", Settings.SpecificLanguage);
+                var noitems = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Search_NoItems}", Settings.SpecificLanguage);
 
                 await context.PostAsync(noitems);
                 TraceManager.SendTrace(context, "SearchDialog", "End");

@@ -1,4 +1,5 @@
 ﻿using IntelligentHack.Bot.Classes;
+using IntelligentHack.Bot.Helpers;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 using System;
@@ -25,13 +26,13 @@ namespace IntelligentHack.Bot.Dialogs
 
         private async Task AfterTranslateAsync(IDialogContext context, IAwaitable<object> result)
         {
-            string welcome = await Translator.TranslateSentenceAsync($"{Resources.Resource.Welcome}", Settings.SpecificLanguage);
+            string welcome = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Welcome}", Settings.SpecificLanguage);
 
             await context.PostAsync(welcome);
             
-            string QuestionPrompt = await Translator.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch}", Settings.SpecificLanguage);
-            string NotValid = await Translator.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch_NotValid}", Settings.SpecificLanguage);
-            string TooManyAttempts = await Translator.TranslateSentenceAsync($"{Resources.Resource.TooManyAttempts}", Settings.SpecificLanguage);
+            string QuestionPrompt = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch}", Settings.SpecificLanguage);
+            string NotValid = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch_NotValid}", Settings.SpecificLanguage);
+            string TooManyAttempts = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.TooManyAttempts}", Settings.SpecificLanguage);
 
             PromptOptions<string> options = new PromptOptions<string>(QuestionPrompt, NotValid, TooManyAttempts, await Collections.ReportSearch.CreateList(), 1);
             PromptDialog.Choice<string>(context, OnMenuReportSearchSelected, options);
@@ -43,8 +44,8 @@ namespace IntelligentHack.Bot.Dialogs
             {
                 string selected = await result;
 
-                string report = await Translator.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch_Report}", Settings.SpecificLanguage);
-                string search = await Translator.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch_Search}", Settings.SpecificLanguage);
+                string report = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch_Report}", Settings.SpecificLanguage);
+                string search = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch_Search}", Settings.SpecificLanguage);
 
                 if (selected.ToLower().Contains(report.ToLower()))
                 {

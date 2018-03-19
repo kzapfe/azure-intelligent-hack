@@ -172,7 +172,7 @@
     <Compile Include="Classes\SearchQuery.cs" />
     <Compile Include="Classes\RegistrationQuery.cs" />
     <Compile Include="Classes\TraceManager.cs" />
-    <Compile Include="Classes\Translator.cs" />
+    <Compile Include="Helpers\TranslatorHelper.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Dialogs\SearchDialog.cs" />
     <Compile Include="Dialogs\RegistrationDialog.cs" />

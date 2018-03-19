@@ -3,9 +3,9 @@ using System.Net.Http;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
-namespace IntelligentHack.Bot.Classes
+namespace IntelligentHack.Bot.Helpers
 {
-    public static class Translator
+    public static class TranslatorHelper
     {
         public async static Task<string> GetDesiredLanguageAsync(string content)
         {

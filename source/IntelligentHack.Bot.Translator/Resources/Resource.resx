@@ -181,7 +181,7 @@
     <value>Oops!, too many attempts.</value>
   </data>
   <data name="Welcome" xml:space="preserve">
-    <value>Welcome to Intelligent Hack Bot.</value>
+    <value>Welcome to the Intelligent Hack Bot!</value>
   </data>
   <data name="Search_NameLastname" xml:space="preserve">
     <value>By name and lastname</value>
@@ -205,7 +205,7 @@
     <value>There was an error with the search.</value>
   </data>
   <data name="Search_NoItems" xml:space="preserve">
-    <value>No person was found.</value>
+    <value>No records found.</value>
   </data>
   <data name="Registration_Genre" xml:space="preserve">
     <value>Enter the genre of the missing person.</value>

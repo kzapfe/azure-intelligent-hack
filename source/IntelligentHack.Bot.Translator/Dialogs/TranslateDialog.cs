@@ -1,4 +1,5 @@
 ﻿using IntelligentHack.Bot.Classes;
+using IntelligentHack.Bot.Helpers;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 using System;
@@ -32,7 +33,7 @@ namespace IntelligentHack.Bot.Dialogs
         private async Task TranslationReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
             var activity = await result;
-            Settings.SpecificLanguage = await Translator.GetDesiredLanguageAsync(activity.Text);
+            Settings.SpecificLanguage = await TranslatorHelper.GetDesiredLanguageAsync(activity.Text);
             context.Done("done");
         }
     }

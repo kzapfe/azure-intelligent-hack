@@ -32,18 +32,12 @@ namespace IntelligentHack.Bot.Controllers
                 switch (activity.GetActivityType())
                 {
                     case ActivityTypes.Message:
-
                         await Conversation.SendAsync(activity, () => new RootDialog());
-
                         break;
 
                     case ActivityTypes.ConversationUpdate:
                         if (activity.MembersAdded.Any(o => o.Id == activity.Recipient.Id))
                         {
-                            ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
-                            Activity reply = activity.CreateReply($"{Resource.Welcome}");
-                            connector.Conversations.ReplyToActivity(reply);
-
                             await Conversation.SendAsync(activity, () => new RootDialog());
                         }
                         break;

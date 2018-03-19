@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IntelligentHack.Bot.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -23,8 +24,8 @@ namespace IntelligentHack.Bot.Classes
         {
             public static async Task<List<string>> CreateList()
             {
-                string photo = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_Photo}", Settings.SpecificLanguage);
-                string namelastname = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_NameLastname}", Settings.SpecificLanguage);
+                string photo = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Search_Photo}", Settings.SpecificLanguage);
+                string namelastname = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Search_NameLastname}", Settings.SpecificLanguage);
 
                 List<string> list = new List<string>();
                 list.Add(photo);
@@ -38,8 +39,8 @@ namespace IntelligentHack.Bot.Classes
         {
             public static async Task<List<string>> CreateList()
             {
-                string yes = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Yes}", Settings.SpecificLanguage);
-                string no = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_No}", Settings.SpecificLanguage);
+                string yes = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Registration_Yes}", Settings.SpecificLanguage);
+                string no = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.Registration_No}", Settings.SpecificLanguage);
 
                 List<string> list = new List<string>();
                 list.Add(yes);
@@ -53,8 +54,8 @@ namespace IntelligentHack.Bot.Classes
         {
             public static async Task<List<string>> CreateList()
             {
-                string report = await Translator.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch_Report}", Settings.SpecificLanguage);
-                string search = await Translator.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch_Search}", Settings.SpecificLanguage);
+                string report = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch_Report}", Settings.SpecificLanguage);
+                string search = await TranslatorHelper.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch_Search}", Settings.SpecificLanguage);
 
                 List<string> list = new List<string>();
                 list.Add(report);
