@@ -5,6 +5,7 @@ using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Connector;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Threading;
@@ -27,8 +28,11 @@ namespace IntelligentHack.Bot.Dialogs
 
         private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<object> result)
         {
-            string QuestionPrompt = $"{Resources.Resource.Registration}";
-            PromptOptions<string> options = new PromptOptions<string>(QuestionPrompt, $"{Resources.Resource.Registration_NotValid}", $"{Resources.Resource.TooManyAttempts}", Collections.Registration.CreateList(), 1);
+            string QuestionPrompt = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration}", Settings.SpecificLanguage);
+            string NotValid = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_NotValid}", Settings.SpecificLanguage);
+            string TooManyAttempts = await Translator.TranslateSentenceAsync($"{Resources.Resource.TooManyAttempts}", Settings.SpecificLanguage);
+
+            PromptOptions<string> options = new PromptOptions<string>(QuestionPrompt, NotValid, TooManyAttempts, await Collections.Registration.CreateList(), 1);
             PromptDialog.Choice<string>(context, OnRegistrationSelected, options);
         }
 
@@ -38,12 +42,17 @@ namespace IntelligentHack.Bot.Dialogs
             {
                 string selected = await result;
 
-                if (selected.ToLower().Contains($"{Resources.Resource.Registration_Yes.ToLower()}"))
+                string yes = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Yes}", Settings.SpecificLanguage);
+                string no = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_No}", Settings.SpecificLanguage);
+
+                if (selected.ToLower().Contains(yes.ToLower()))
                 {
                 }
-                else if (selected.ToLower().Contains($"{Resources.Resource.Registration_No.ToLower()}"))
+                else if (selected.ToLower().Contains(no.ToLower()))
                 {
-                    await context.PostAsync($"{Resources.Resource.Registration_AdviseNoIdentification}");
+                    string advice = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_AdviseNoIdentification}", Settings.SpecificLanguage);
+
+                    await context.PostAsync(advice);
                     var registrationFormDialog = FormDialog.FromForm(this.BuildRegistrationForm, FormOptions.PromptFieldsWithValues);
                     await context.Forward(registrationFormDialog, AfterRegistrationAsync, context.Activity, CancellationToken.None);
                 }
@@ -54,23 +63,43 @@ namespace IntelligentHack.Bot.Dialogs
             }
         }
 
+        private async Task<RegistrationQueryAllText> BuildAsync()
+        {
+            RegistrationQueryAllText result = new RegistrationQueryAllText();
+            result.Name = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Name}", Settings.SpecificLanguage);
+            result.Lastname = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Lastname}", Settings.SpecificLanguage);
+            result.CountryText = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Country}", Settings.SpecificLanguage);
+            result.LocationOfLost = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_LocationOfLost}", Settings.SpecificLanguage);
+            result.DateOfLost = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_DateOfLost}", Settings.SpecificLanguage);
+            result.ReportId = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_ReportId}", Settings.SpecificLanguage);
+            result.ReportedBy = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_ReportedBy}", Settings.SpecificLanguage);
+            result.GenreText = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Genre}", Settings.SpecificLanguage);
+
+            return result;
+        }
+
         private IForm<RegistrationQuery> BuildRegistrationForm()
         {
             OnCompletionAsyncDelegate<RegistrationQuery> processRegistration = async (context, state) =>
             {
-                await context.PostAsync($"{Resources.Resource.Registration_WaitingForImage}");
+                string waiting = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_WaitingForImage}", Settings.SpecificLanguage);
+
+                await context.PostAsync(waiting);
                 context.PrivateConversationData.SetValue(REGISTRATIONDATA, state);
             };
 
+            RegistrationQueryAllText res = null;
+            Task.Run(BuildAsync).ContinueWith((b)=> { res = b.Result; }).Wait();
+
             return new FormBuilder<RegistrationQuery>()
-                .Field(nameof(RegistrationQuery.Name), $"{Resources.Resource.Registration_Name}")
-                .Field(nameof(RegistrationQuery.Lastname), $"{Resources.Resource.Registration_Lastname}")
-                .Field(nameof(RegistrationQuery.Country), $"{Resources.Resource.Registration_Country}")
-                .Field(nameof(RegistrationQuery.LocationOfLost), $"{Resources.Resource.Registration_LocationOfLost}")
-                .Field(nameof(RegistrationQuery.DateOfLost), $"{Resources.Resource.Registration_DateOfLost}")
-                .Field(nameof(RegistrationQuery.ReportId), $"{Resources.Resource.Registration_ReportId}")
-                .Field(nameof(RegistrationQuery.ReportedBy), $"{Resources.Resource.Registration_ReportedBy}")
-                .Field(nameof(RegistrationQuery.Genre), $"{Resources.Resource.Registration_Genre}")
+                .Field(nameof(RegistrationQuery.Name), res.Name)
+                .Field(nameof(RegistrationQuery.Lastname), res.Lastname)
+                .Field(nameof(RegistrationQuery.Country), res.CountryText)
+                .Field(nameof(RegistrationQuery.LocationOfLost), res.LocationOfLost)
+                .Field(nameof(RegistrationQuery.DateOfLost), res.DateOfLost)
+                .Field(nameof(RegistrationQuery.ReportId), res.ReportId)
+                .Field(nameof(RegistrationQuery.ReportedBy), res.ReportedBy)
+                .Field(nameof(RegistrationQuery.Genre), res.GenreText)
                 .OnCompletion(processRegistration)
                 .Build();
         }
@@ -82,7 +111,9 @@ namespace IntelligentHack.Bot.Dialogs
 
         private async Task ImageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
-            await context.PostAsync($"{Resources.Resource.Registration_InProgress}");
+            string inprogress = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_InProgress}", Settings.SpecificLanguage);
+
+            await context.PostAsync(inprogress);
 
             var message = await result;
 
@@ -134,20 +165,26 @@ namespace IntelligentHack.Bot.Dialogs
                     Stream stream = new MemoryStream(imageBytes);
                     if (await StorageHelper.UploadPhoto(pid, stream))
                     {
-                        await context.PostAsync($"{Resources.Resource.Registration_Success}");
+                        string success = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Success}", Settings.SpecificLanguage);
+
+                        await context.PostAsync(success);
                         TraceManager.SendTrace(context, "RegistrationDialog", "End");
                         context.Done("done");
                     }
                     else
                     {
-                        await context.PostAsync($"{Resources.Resource.Registration_Fail}");
+                        string fail = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Fail}", Settings.SpecificLanguage);
+
+                        await context.PostAsync(fail);
                         TraceManager.SendTrace(context, "RegistrationDialog", "End");
                         context.Done("done");
                     }
                 }
                 catch (Exception)
                 {
-                    await context.PostAsync($"{Resources.Resource.Registration_Fail}");
+                    string fail = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Fail}", Settings.SpecificLanguage);
+
+                    await context.PostAsync(fail);
                     TraceManager.SendTrace(context, "RegistrationDialog", "End");
                     context.Done("done");
                 }
@@ -155,7 +192,9 @@ namespace IntelligentHack.Bot.Dialogs
             }
             else
             {
-                await context.PostAsync($"{Resources.Resource.Registration_Fail}");
+                string fail = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Fail}", Settings.SpecificLanguage);
+
+                await context.PostAsync(fail);
                 TraceManager.SendTrace(context, "RegistrationDialog", "End");
                 context.Done("done");
             }

@@ -14,4 +14,9 @@ namespace IntelligentHack.Bot.Classes
 
         public Country? Country { get; set; }
     }
+
+    public class SearchQueryAllText : SearchQuery
+    {
+        public string CountryText { get; set; }
+    }
 }

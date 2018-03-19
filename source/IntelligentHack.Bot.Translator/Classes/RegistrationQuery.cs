@@ -27,4 +27,11 @@ namespace IntelligentHack.Bot.Classes
 
         public Genre? Genre { get; set; }
     }
+
+    public class RegistrationQueryAllText : RegistrationQuery
+    {
+        public string CountryText { get; set; }
+
+        public string GenreText { get; set; }
+    }
 }

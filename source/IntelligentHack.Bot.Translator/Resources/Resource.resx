@@ -127,7 +127,7 @@
     <value>Report a person</value>
   </data>
   <data name="MenuReportSearch_Search" xml:space="preserve">
-    <value>Search a person</value>
+    <value>Find a person</value>
   </data>
   <data name="Registration" xml:space="preserve">
     <value>Do you want to identify yourself?</value>
@@ -136,10 +136,10 @@
     <value>You are not identified, the registration will be performed in anonymous mode.</value>
   </data>
   <data name="Registration_Country" xml:space="preserve">
-    <value>Introduce the country where was the lost (US, MX).</value>
+    <value>Enter the country where was the lost.</value>
   </data>
   <data name="Registration_DateOfLost" xml:space="preserve">
-    <value>Introduce the date of the lost (mm/dd/yyyy).</value>
+    <value>Enter the date of the lost (mm/dd/yyyy).</value>
   </data>
   <data name="Registration_Fail" xml:space="preserve">
     <value>There was an error registering the report.</value>
@@ -148,13 +148,13 @@
     <value>Registration in progress.</value>
   </data>
   <data name="Registration_Lastname" xml:space="preserve">
-    <value>Introduce the lastname of the missing person.</value>
+    <value>Enter the lastname of the missing person.</value>
   </data>
   <data name="Registration_LocationOfLost" xml:space="preserve">
-    <value>Introduce the location of the lost.</value>
+    <value>Enter the location of the lost person</value>
   </data>
   <data name="Registration_Name" xml:space="preserve">
-    <value>Introduce the name of the missing person.</value>
+    <value>Enter the name of the missing person.</value>
   </data>
   <data name="Registration_No" xml:space="preserve">
     <value>No</value>
@@ -163,10 +163,10 @@
     <value>Not a valid option.</value>
   </data>
   <data name="Registration_ReportedBy" xml:space="preserve">
-    <value>Introduce the email address where we will reach you with the details of the registration.</value>
+    <value>Enter the email address where we will reach you with the details of the registration.</value>
   </data>
   <data name="Registration_ReportId" xml:space="preserve">
-    <value>Introduce the identifier of the report.</value>
+    <value>Enter the identifier of the report.</value>
   </data>
   <data name="Registration_Success" xml:space="preserve">
     <value>The report has been successfully registered. You will receive in shortly an email with more details about the registration.</value>
@@ -208,6 +208,9 @@
     <value>No person was found.</value>
   </data>
   <data name="Registration_Genre" xml:space="preserve">
-    <value>Introduce the genre of the missing person (M/F).</value>
+    <value>Enter the genre of the missing person.</value>
+  </data>
+  <data name="Welcome_TranslationMessage" xml:space="preserve">
+    <value>Just say a phrase to set your preferred language.</value>
   </data>
 </root>

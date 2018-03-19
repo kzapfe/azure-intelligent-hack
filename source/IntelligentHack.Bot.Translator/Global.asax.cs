@@ -26,6 +26,8 @@ namespace IntelligentHack.Bot
             Settings.FunctionURL = ConfigurationManager.AppSettings["FunctionURL"];
             Settings.Cryptography = ConfigurationManager.AppSettings["Cryptography"];
             Settings.ImageStorageUrl = ConfigurationManager.AppSettings["ImageStorageUrl"];
+            Settings.TranslatorKey = ConfigurationManager.AppSettings["TranslatorKey"];
+            Settings.SpecificLanguage = ConfigurationManager.AppSettings["SpecificLanguage"];
 
             Conversation.UpdateContainer(
                 builder =>

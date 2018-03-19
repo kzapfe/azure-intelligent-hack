@@ -19,5 +19,9 @@ namespace IntelligentHack.Bot
 
         public static string ImageStorageUrl { get; set; }
 
+        public static string TranslatorKey { get; set; }
+
+        public static string SpecificLanguage { get; set; }
+
     }
 }

@@ -27,8 +27,11 @@ namespace IntelligentHack.Bot.Dialogs
 
         private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<object> result)
         {
-            string QuestionPrompt = $"{Resources.Resource.Search_Question}";
-            PromptOptions<string> options = new PromptOptions<string>(QuestionPrompt, $"{Resources.Resource.Search_NotValid}", $"{Resources.Resource.TooManyAttempts}", Collections.Search.CreateList(), 1);
+            string QuestionPrompt = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_Question}", Settings.SpecificLanguage);
+            string NotValid = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_NotValid}", Settings.SpecificLanguage);
+            string TooManyAttempts = await Translator.TranslateSentenceAsync($"{Resources.Resource.TooManyAttempts}", Settings.SpecificLanguage);
+
+            PromptOptions<string> options = new PromptOptions<string>(QuestionPrompt, NotValid, TooManyAttempts, await Collections.Search.CreateList(), 1);
             PromptDialog.Choice<string>(context, OnSearchModeSelected, options);
         }
 
@@ -38,12 +41,18 @@ namespace IntelligentHack.Bot.Dialogs
             {
                 string selected = await result;
 
-                if (selected.ToLower().Contains($"{Resources.Resource.Search_Photo.ToLower()}"))
+                string photo = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_Photo}", Settings.SpecificLanguage);
+                string namelastname = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_NameLastname}", Settings.SpecificLanguage);
+
+
+                if (selected.ToLower().Contains(photo.ToLower()))
                 {
-                    await context.PostAsync($"{Resources.Resource.Search_WaitingForImage}");
+                    string waiting = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_WaitingForImage}", Settings.SpecificLanguage);
+
+                    await context.PostAsync(waiting);
                     context.Wait(ImageReceivedAsync);
                 }
-                else if (selected.ToLower().Contains($"{Resources.Resource.Search_NameLastname.ToLower()}"))
+                else if (selected.ToLower().Contains(namelastname.ToLower()))
                 {
                     var registrationFormDialog = FormDialog.FromForm(this.BuildSearchForm, FormOptions.PromptFieldsWithValues);
                     await context.Forward(registrationFormDialog, AfterSearchAsync, context.Activity, CancellationToken.None);
@@ -55,16 +64,29 @@ namespace IntelligentHack.Bot.Dialogs
             }
         }
 
+        private async Task<SearchQueryAllText> BuildAsync()
+        {
+            SearchQueryAllText result = new SearchQueryAllText();
+            result.Name = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Name}", Settings.SpecificLanguage);
+            result.Lastname = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Lastname}", Settings.SpecificLanguage);
+            result.CountryText = await Translator.TranslateSentenceAsync($"{Resources.Resource.Registration_Country}", Settings.SpecificLanguage);
+
+            return result;
+        }
+
         private IForm<SearchQuery> BuildSearchForm()
         {
             OnCompletionAsyncDelegate<SearchQuery> processSearch = async (context, state) =>
             {
             };
 
+            SearchQueryAllText res = null;
+            Task.Run(BuildAsync).ContinueWith((b) => { res = b.Result; }).Wait();
+
             return new FormBuilder<SearchQuery>()
-                .Field(nameof(SearchQuery.Name), $"{Resources.Resource.Registration_Name}")
-                .Field(nameof(SearchQuery.Lastname), $"{Resources.Resource.Registration_Lastname}")
-                .Field(nameof(SearchQuery.Country), $"{Resources.Resource.Registration_Country}")
+                .Field(nameof(SearchQuery.Name), res.Name)
+                .Field(nameof(SearchQuery.Lastname), res.Lastname)
+                .Field(nameof(SearchQuery.Country), res.CountryText)
                 .OnCompletion(processSearch)
                 .Build();
         }
@@ -83,7 +105,9 @@ namespace IntelligentHack.Bot.Dialogs
 
             if (!list.Any())
             {
-                await context.PostAsync($"{Resources.Resource.Search_NoItems}");
+                var noitems = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_NoItems}", Settings.SpecificLanguage);
+
+                await context.PostAsync(noitems);
                 TraceManager.SendTrace(context, "SearchDialog", "End");
                 context.Done("done");
             }
@@ -103,7 +127,9 @@ namespace IntelligentHack.Bot.Dialogs
 
         private async Task ImageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
-            await context.PostAsync($"{Resources.Resource.Search_InProgress}");
+            var inprogress = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_InProgress}", Settings.SpecificLanguage);
+
+            await context.PostAsync(inprogress);
 
             var message = await result;
 
@@ -129,14 +155,18 @@ namespace IntelligentHack.Bot.Dialogs
             }
             else
             {
-                await context.PostAsync($"{Resources.Resource.Search_VerificationError}");
+                var verification = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_VerificationError}", Settings.SpecificLanguage);
+
+                await context.PostAsync(verification);
                 TraceManager.SendTrace(context, "SearchDialog", "End");
                 context.Done("done");
             }
 
             if (!list.Any())
             {
-                await context.PostAsync($"{Resources.Resource.Search_NoItems}");
+                var noitems = await Translator.TranslateSentenceAsync($"{Resources.Resource.Search_NoItems}", Settings.SpecificLanguage);
+
+                await context.PostAsync(noitems);
                 TraceManager.SendTrace(context, "SearchDialog", "End");
                 context.Done("done");
             }

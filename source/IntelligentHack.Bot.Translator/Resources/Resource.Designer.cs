@@ -88,7 +88,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Search a person.
+        ///   Looks up a localized string similar to Find a person.
         /// </summary>
         internal static string MenuReportSearch_Search {
             get {
@@ -115,7 +115,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Introduce the country where was the lost (US, MX)..
+        ///   Looks up a localized string similar to Enter the country where was the lost..
         /// </summary>
         internal static string Registration_Country {
             get {
@@ -124,7 +124,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Introduce the date of the lost (mm/dd/yyyy)..
+        ///   Looks up a localized string similar to Enter the date of the lost (mm/dd/yyyy)..
         /// </summary>
         internal static string Registration_DateOfLost {
             get {
@@ -142,7 +142,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Introduce the genre of the missing person (M/F)..
+        ///   Looks up a localized string similar to Enter the genre of the missing person..
         /// </summary>
         internal static string Registration_Genre {
             get {
@@ -160,7 +160,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Introduce the lastname of the missing person..
+        ///   Looks up a localized string similar to Enter the lastname of the missing person..
         /// </summary>
         internal static string Registration_Lastname {
             get {
@@ -169,7 +169,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Introduce the location of the lost..
+        ///   Looks up a localized string similar to Enter the location of the lost person.
         /// </summary>
         internal static string Registration_LocationOfLost {
             get {
@@ -178,7 +178,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Introduce the name of the missing person..
+        ///   Looks up a localized string similar to Enter the name of the missing person..
         /// </summary>
         internal static string Registration_Name {
             get {
@@ -205,7 +205,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Introduce the email address where we will reach you with the details of the registration..
+        ///   Looks up a localized string similar to Enter the email address where we will reach you with the details of the registration..
         /// </summary>
         internal static string Registration_ReportedBy {
             get {
@@ -214,7 +214,7 @@ namespace IntelligentHack.Bot.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Introduce the identifier of the report..
+        ///   Looks up a localized string similar to Enter the identifier of the report..
         /// </summary>
         internal static string Registration_ReportId {
             get {
@@ -336,6 +336,15 @@ namespace IntelligentHack.Bot.Resources {
         internal static string Welcome {
             get {
                 return ResourceManager.GetString("Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Just say a phrase to set your preferred language..
+        /// </summary>
+        internal static string Welcome_TranslationMessage {
+            get {
+                return ResourceManager.GetString("Welcome_TranslationMessage", resourceCulture);
             }
         }
     }

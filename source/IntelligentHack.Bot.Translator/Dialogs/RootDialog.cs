@@ -20,18 +20,20 @@ namespace IntelligentHack.Bot.Dialogs
         public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
             var activity = await result as Activity;
-            if (!context.PrivateConversationData.ContainsKey(LanguageChoiceDialog.LCID))
-            {
-                await context.Forward(new LanguageChoiceDialog(), AfterLanguageChoiceAsync, activity, CancellationToken.None);
-            }
+            await context.Forward(new TranslateDialog(), AfterTranslateAsync, activity, CancellationToken.None);
         }
 
-        private async Task AfterLanguageChoiceAsync(IDialogContext context, IAwaitable<object> result)
+        private async Task AfterTranslateAsync(IDialogContext context, IAwaitable<object> result)
         {
-            await context.PostAsync($"{Resources.Resource.Welcome}");
+            string welcome = await Translator.TranslateSentenceAsync($"{Resources.Resource.Welcome}", Settings.SpecificLanguage);
 
-            string QuestionPrompt = $"{Resources.Resource.MenuReportSearch}";
-            PromptOptions<string> options = new PromptOptions<string>(QuestionPrompt, $"{Resources.Resource.MenuReportSearch_NotValid}", $"{Resources.Resource.TooManyAttempts}", Collections.ReportSearch.CreateList(), 1);
+            await context.PostAsync(welcome);
+            
+            string QuestionPrompt = await Translator.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch}", Settings.SpecificLanguage);
+            string NotValid = await Translator.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch_NotValid}", Settings.SpecificLanguage);
+            string TooManyAttempts = await Translator.TranslateSentenceAsync($"{Resources.Resource.TooManyAttempts}", Settings.SpecificLanguage);
+
+            PromptOptions<string> options = new PromptOptions<string>(QuestionPrompt, NotValid, TooManyAttempts, await Collections.ReportSearch.CreateList(), 1);
             PromptDialog.Choice<string>(context, OnMenuReportSearchSelected, options);
         }
 
@@ -41,11 +43,14 @@ namespace IntelligentHack.Bot.Dialogs
             {
                 string selected = await result;
 
-                if (selected.ToLower().Contains($"{Resources.Resource.MenuReportSearch_Report.ToLower()}"))
+                string report = await Translator.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch_Report}", Settings.SpecificLanguage);
+                string search = await Translator.TranslateSentenceAsync($"{Resources.Resource.MenuReportSearch_Search}", Settings.SpecificLanguage);
+
+                if (selected.ToLower().Contains(report.ToLower()))
                 {
                     await context.Forward(new RegistrationDialog(), AfterRegistrationAsync, context.Activity, CancellationToken.None);
                 }
-                else if (selected.ToLower().Contains($"{Resources.Resource.MenuReportSearch_Search.ToLower()}"))
+                else if (selected.ToLower().Contains(search.ToLower()))
                 {
                     await context.Forward(new SearchDialog(), AfterSearchAsync, context.Activity, CancellationToken.None);
                 }
