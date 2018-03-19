@@ -15,6 +15,7 @@ namespace IntelligentHack.Bot.Dialogs
     {
         public Task StartAsync(IDialogContext context)
         {
+            TraceManager.SendTrace(context, "TranslateDialog", "Begin");
             context.Wait(MessageReceivedAsync);
             return Task.CompletedTask;
         }
@@ -34,6 +35,7 @@ namespace IntelligentHack.Bot.Dialogs
         {
             var activity = await result;
             Settings.SpecificLanguage = await TranslatorHelper.GetDesiredLanguageAsync(activity.Text);
+            TraceManager.SendTrace(context, "TranslateDialog", "End");
             context.Done("done");
         }
     }
