@@ -59,7 +59,6 @@
                 "S0"
             ]
         },
-        ,
         "translatorApiPricingTier": {
             "type": "string",
             "metadata": {
