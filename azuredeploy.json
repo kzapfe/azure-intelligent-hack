@@ -58,6 +58,21 @@
                 "F0",
                 "S0"
             ]
+        },
+        ,
+        "translatorApiPricingTier": {
+            "type": "string",
+            "metadata": {
+                "description": "SKU for TextTranslation API"
+            },
+            "defaultValue": "S1",
+            "allowedValues": [
+                "F0",
+                "S1",
+                "S2",
+                "S3",
+                "S4"
+            ]
         }
     },
     "variables": {
@@ -67,7 +82,8 @@
         "functionAppName": "[toLower(concat(resourceGroup().name,'-fun'))]",
         "databaseAccountName": "[toLower(concat(resourceGroup().name,'-cos'))]",
         "offerType": "Standard",
-        "faceApiAccountName": "[toLower(concat(resourceGroup().name,'-fac'))]"
+        "faceApiAccountName": "[toLower(concat(resourceGroup().name,'-fac'))]",
+        "translatorApiAccountName": "[toLower(concat(resourceGroup().name,'-tran'))]"
     },
     "resources": [
         {
@@ -213,6 +229,18 @@
             },
             "kind": "Face",
             "name": "[variables('faceApiAccountName')]",
+            "apiVersion": "2016-02-01-preview",
+            "location": "[resourceGroup().location]",
+            "properties": {},
+            "dependsOn": []
+        },
+        {
+            "type": "Microsoft.CognitiveServices/accounts",
+            "sku": {
+              "name": "[parameters('translatorApiPricingTier')]"
+            },
+            "kind": "TextTranslation",
+            "name": "[variables('translatorApiAccountName')]",
             "apiVersion": "2016-02-01-preview",
             "location": "[resourceGroup().location]",
             "properties": {},
