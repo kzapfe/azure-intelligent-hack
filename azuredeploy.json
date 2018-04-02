@@ -241,7 +241,7 @@
             "kind": "TextTranslation",
             "name": "[variables('translatorApiAccountName')]",
             "apiVersion": "2016-02-01-preview",
-            "location": "[resourceGroup().location]",
+            "location": "global",
             "properties": {},
             "dependsOn": []
         }
