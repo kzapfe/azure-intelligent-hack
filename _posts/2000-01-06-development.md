@@ -22,8 +22,6 @@ In your IntelligentHack\App.xaml.cs file set the following attributes:
     Settings.Cryptography = "{AzureFunctionAppCryptographyKey}";
 ```
 
-In your CognitiveLocator.Droid project go to Resources\values\strings.xml and set the following attributes:
-
 Congrats if you successfully configure the app you can run it now!
 
 <img src="http://rcervantes.me/azure-intelligent-hack/images/intelligenthack-1.png" width="300" />
