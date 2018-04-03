@@ -23,5 +23,8 @@ namespace IntelligentHack.Bot
 
         public static string SpecificLanguage { get; set; }
 
+        public static string CosmosDBUri { get; set; }
+
+        public static string CosmosDBKey { get; set; }
     }
 }
