@@ -52,7 +52,10 @@ ConfigureDatabase ()
     echo "* Configuring: Database>>"
 
     collectionName="Person"
-    echo "Collection name: " collectionName
+    echo "Collection person name: " collectionName
+    
+    collectionBotName="Bot"
+    echo "Collection bot name: " collectionBotName
     
     databaseAccountName=$resourceGroupName"-cos"
     echo "Account name: " $databaseAccountName
@@ -67,6 +70,9 @@ ConfigureDatabase ()
     # create person collection in documentDB database
     az cosmosdb collection create --collection-name $collectionName --name $databaseAccountName --db-name $databaseName --resource-group $resourceGroupName
     
+    # create bot collection in documentDB database
+    az cosmosdb collection create --collection-name $collectionBotName --name $databaseAccountName --db-name $databaseName --resource-group $resourceGroupName
+  
     echo "Database configured successfully!"
 }
 
