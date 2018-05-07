@@ -1,4 +1,4 @@
-# Azure Cognitive Hack
+# Azure Intelligent Hack
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
